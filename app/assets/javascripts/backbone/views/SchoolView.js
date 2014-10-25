@@ -6,6 +6,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		this.listenTo( this.model, "destroy", this.remove );
 	},
 	tagName: 'li',
+	// id: 'school',
 	// editTemplate: _.template( $('#penguin-edit-template').html() ),
 	// template: _.template( $('#penguin-template').html() ),
 	events: {
@@ -15,10 +16,11 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		// 'mouseleave' : 'hoverOff'
 	},
 	render: function(){
-		this.$el.empty();
+		// this.$el.empty();
 		
 		// this.$el.html(this.template( this.model.attributes ));
 		var school = this.$el.html(this.model.attributes.name)[0]
+		school.id = 'school-' + this.model.attributes.id
 		$('.schools-list').append(school)
 
 	},
