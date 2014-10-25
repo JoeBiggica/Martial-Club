@@ -10,7 +10,18 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+
+//= require backbone-rails
+// require ./libraries/backbone_development.js
+// require ./libraries/underscore.js
+//= require ./libraries/bootstrap
+
+//= require ./backbone/main_script
+//= require ./backbone/models/SchoolModel
+//= require ./backbone/collections/SchoolCollection
+//= require ./backbone/views/SchoolView
+//= require ./backbone/views/SchoolListView

@@ -15,7 +15,6 @@ class SessionController < ApplicationController
 				@login_error = true
 				render :new
 			end
-		else
 		end
 
 		# elsif params["signup_email"] != "" && params["signup_password"] != ""
