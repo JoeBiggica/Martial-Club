@@ -8,7 +8,8 @@ MartialClub.Views.SchoolListView = Backbone.View.extend({
 
 		var school = new MartialClub.Views.SchoolView({ model: item })
 		school.render();
-		this.$el.append(school.el)
+		
+		$('.schools-list')[0].appendChild(school.el)
 		// var self = this;
 		// this.$el.empty();
 		// _.each(this.collection.models, function(school){

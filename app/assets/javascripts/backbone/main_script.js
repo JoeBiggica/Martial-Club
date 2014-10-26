@@ -23,14 +23,9 @@ MartialClub.initialize = function(){
 $(function(){
 	MartialClub.initialize();
 
-	_.each($('.schools-list > li'), function(school){
-		console.log('soos')
-		school.click(function(){
-			console.log('soos')
-			$('#' + school.id).toggle();
-			$('.schools').toggle();
-		})
-
+	$('.schools-button').on('click', function(){
+		$('.below-header').toggle();
+		$('.schools').toggle();
 	});
 
 });

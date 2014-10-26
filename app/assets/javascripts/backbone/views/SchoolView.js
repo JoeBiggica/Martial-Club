@@ -6,22 +6,27 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		this.listenTo( this.model, "destroy", this.remove );
 	},
 	tagName: 'li',
-	// id: 'school',
-	// editTemplate: _.template( $('#penguin-edit-template').html() ),
-	// template: _.template( $('#penguin-template').html() ),
+	template: _.template( $('#school-list-template').html() ),
 	events: {
-		// 'click [data-action="destroy"]' : 'destroyPenguin',
-		// 'click [data-action="edit"]' : 'renderEditForm',
-		// 'mouseenter' : 'hoverOn',
-		// 'mouseleave' : 'hoverOff'
+		"click a" : "seeSchool",
 	},
-	render: function(){
-		// this.$el.empty();
+
+	seeSchool: function(el) {
+		var item = el.target.parentNode.id;
+		var schoolId = item.split('-')[1];
+		var schoolPage  = $('#school-page-' + schoolId)
 		
-		// this.$el.html(this.template( this.model.attributes ));
-		var school = this.$el.html(this.model.attributes.name)[0]
-		school.id = 'school-' + this.model.attributes.id
-		$('.schools-list').append(school)
+		$('.schools').toggle();
+		schoolPage.toggle();
+	},
+
+	render: function(){
+		this.$el.empty();
+		this.$el.html(this.template( { school: this.model.toJSON() }));
+		// var school = this.$el.html('<a>' + this.model.attributes.name + '</a>')[0]
+		// school.className = 'school-name'
+		// school.id = 'school-' + this.model.attributes.id
+		// $('.schools-list').append(school)
 
 	},
 	destroyPenguin: function(e){

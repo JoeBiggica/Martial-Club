@@ -22,20 +22,20 @@
 	</div>
 
 	<nav class="row header-nav">
-		<button class="col-md-3 col-md-offset-1">Schools</button>
-		<button class="col-md-3">Styles</button>
-		<button class="col-md-3">News</button>
+		<button class="col-md-3 col-md-offset-1 schools-button">Schools</button>
+		<button class="col-md-3 styles-button">Styles</button>
+		<button class="col-md-3 news-button">News</button>
 	</nav>
-
+	
 	<div class="row schools">
 		<ul class="col-md-4 col-md-offset-1 schools-list">
 			
 		</ul>
 
 	</div>
-
+	
 	<% schools.each do |school| %>
-		<div class="school-page" id="school-<%= school.id %>" style="display: none">
+		<div class="school-page" id="school-page-<%= school.id %>" style="display: none">
 			<div class="row school-header">
 				<section class="col-md-6 col-md-offset-3">
 					<h1>Logo</h1>
@@ -82,8 +82,6 @@
 			</div>
 			
 		</div>
-
-
 
 	<% end %>
 </div>
