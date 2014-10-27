@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
 	def new
-		render :new
+		render :new, layout: 'signup_login'
 	end
 
 	def create
@@ -10,10 +10,10 @@ class SessionController < ApplicationController
 
 			if user && user.authenticate(params["login_password"])
 				session[:user_id] = user.id
-				redirect_to '/main'
+				redirect_to '/'
 			else
 				@login_error = true
-				render :new
+				render :new, layout: 'signup_login'
 			end
 		end
 

@@ -1,6 +1,5 @@
 class MainController < ApplicationController
 	def index
-		render(:index, {locals: { schools: School.all}})
+		render(:index)
 	end
-
 end

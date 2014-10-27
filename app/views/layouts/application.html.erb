@@ -15,9 +15,9 @@
 			<section class="col-md-6 col-md-offset-3">
 				<h1>Logo</h1>
 				<h2><%%= school.name %></h2>
-				<%% school.styles.each do |style| %>
+				<%% _.each(school.styles, function(style){ %>
 					<h3><%%= style.name %></h3>
-				<%% end %>
+				<%% }); %>
 			</section>
 
 			<article class="col-md-4 col-md-offset-4 contact-info">
@@ -41,30 +41,162 @@
 		<div class="row school-students">
 			<section class="col-md-10 col-md-offset-1">
 				<h1>Students</h1>
-				<%% school.users.each do |user| %>
+				<%% _.each(school.users, function(user){ %>
 					<h3><%%= user.first_name %> <%%= user.last_name %></h3>
-				<%% end %>
+				<%% }); %>
 			</section>
 		</div>
 
 		<div class="row school-followers">
 			<section class="col-md-10 col-md-offset-1">
 				<h1>Followers</h1>
-				<%% school.followers.each do |follower| %>
+				<%% _.each(school.followers, function(follower){ %>
 					<h3><%%= User.find(follower.user_id).first_name %> <%%= User.find(follower.user_id).last_name %></h3>
-				<%% end %>
+				<%% }); %>
 			</section>
 		</div>
 		
 	</div>
   </script>
 
+  <script type="text/template" id="style-list-template">
+  	<a id="style-<%%= style.id %>" class="style-name"><%%= style.name %></a> 
+  </script>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </head>
 <body>
+	<div class="container">
+		<div class="row header-1">
+			<section class="col-md-3 col-md-offset-1">
+				<h4>Logo here</h4>
+			</section>
+			<section class="col-md-5">
+				<input type="text" name="search" placeholder="Search for schools, styles, etc" style="width: 200px; height: 30px; margin-top: 10px;"> 
+				<i class="fa fa-search fa-2x"></i>
+			</section>
+			<section class="col-md-3">
+				<h4><%= session["user_id"] %></h4>
+				<%= form_tag("/session", method: "delete") do %>
+	  				<%= submit_tag("Logout") %>
+				<% end %>
+			</section>
+		</div>
 
-<%= yield %>
+		<div class="row header-2">
+			<main class="col-md-10 col-md-offset-1">
+				<h1>Martial Club</h1>
+			</main>
+		</div>
+
+		<nav class="row header-nav">
+			<button class="col-md-3 col-md-offset-1 schools-button">Schools</button>
+			<button class="col-md-3 styles-button">Styles</button>
+			<button class="col-md-3 news-button">News</button>
+		</nav>
+
+		<button data-toggle="modal" data-target="#info">
+		  Build School
+		</button>
+
+		<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+						<h4 class="modal-title" id="myModalLabel">Fill In Your School's Info Here</h4>
+
+						 <div class="modal-body">
+					 		<div id="map-canvas-single" ></div>
+					 		<div class="add-school-form">
+					 			<label>Name:<br/>
+					 				<input type="text" name="school-name" placeholder="Name">
+					 			</label><br/><br/>
+								
+								<label>Style:
+									<select name="school-style" class="form-control">
+										<% Style.all.each do |style| %>
+					  						<option value="<% style.name %>"><%= style.name %></option>
+					  					<% end %>
+					  					<option value="new_style">New Style</option>
+									</select>
+								</label><br/><br/>
+								
+								<label>Country of Origin:<br/>
+					 				<input type="text" class="input" name="school-country" placeholder="Country">
+					 			</label><br/><br/>
+								
+								<label>Description:<br/>
+									<textarea name="school-description" cols="60" rows="10" placeholder="Brief description of your school."></textarea>
+								</label><br/><br/>
+								
+								<label>Lineage:<br/>
+									<textarea name="school-lineage" cols="60" rows="10" placeholder="example:  Luk Ah Choi => Wong Kei Ying => Wong Fei Hung"></textarea>
+					 			</label><br/><br/>
+								
+								<hr>
+
+								<h3>Location</h3>
+								<label>Address:<br/>
+					 				<input type="text" class="input" name="school-address" placeholder="Address">
+					 			</label><br/><br/>
+
+					 			<label>City:<br/>
+					 				<input type="text" class="input" name="school-city" placeholder="City">
+					 			</label><br/><br/>
+
+					 			<label>State:<br/>
+					 				<input type="text" class="input" name="school-state" placeholder="State">
+					 			</label><br/><br/>
+
+					 			<label>Zipcode:<br/>
+					 				<input type="text" class="input" name="school-zipcode" placeholder="Zipcode">
+					 			</label><br/><br/>
+
+					 			<hr>
+
+					 			<h3>Contact Info</h3>
+					 			<label>Phone Number:<br/>
+					 				<input type="text" class="input" name="school-number" placeholder="Phone Number">
+					 			</label><br/><br/>
+
+					 			<label>Email:<br/>
+					 				<input type="text" class="input" name="school-email" placeholder="Email">
+					 			</label><br/><br/>
+
+					 			<hr>
+
+					 			<h3>Connect</h3>
+					 			<label>Website URL:<br/>
+					 				<input type="text" class="input" name="school-site_link" placeholder="Site URL">
+					 			</label><br/><br/>
+
+					 			<label>Facebook:<br/>
+					 				<input type="text" class="input" name="school-facebook_link" placeholder="Facebook URL">
+					 			</label><br/><br/>
+
+					 			<label>Twitter:<br/>
+					 				<input type="text" class="input" name="school-twitter" placeholder="Twitter Name">
+					 			</label><br/><br/>
+					 		</div>
+						
+						</div>
+					</div>
+					<div class="modal-footer">
+			        	<button class="add-school">Add School</button>
+			      	</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="transform">
+			<%= yield %>
+		</div>
+
+	</div>
 
 </body>
 </html>

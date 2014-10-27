@@ -10,14 +10,14 @@ class UsersController < ApplicationController
 			if user.valid?
 				user.save
 				session[:user_id] = User.all.last.id
-				redirect_to '/main'
+				redirect_to '/'
 			else
 				@signup_error = true
-				render "session/new"
+				render "session/new", layout: 'signup_login'
 			end
 		else 
 			@signup_error = true
-			render "session/new"
+			render "session/new", layout: 'signup_login'
 		end
 
 	end

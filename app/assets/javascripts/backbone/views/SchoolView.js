@@ -2,22 +2,25 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
-		this.listenTo( this.model, "change", this.render )
+		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
+
 	tagName: 'li',
 	template: _.template( $('#school-list-template').html() ),
+	schoolPageTemplate: _.template( $('#school-page-template').html() ),
+
 	events: {
-		"click a" : "seeSchool",
+		"click a.school-name" : "seeSchool",
+		
 	},
 
-	seeSchool: function(el) {
-		var item = el.target.parentNode.id;
-		var schoolId = item.split('-')[1];
-		var schoolPage  = $('#school-page-' + schoolId)
+	seeSchool: function() {
+		$('.transform').empty();
+		$('.transform').html(this.schoolPageTemplate( { school: this.model.toJSON() }));
 		
-		$('.schools').toggle();
-		schoolPage.toggle();
+		// $('.schools').toggle();
+		// schoolPage.toggle();
 	},
 
 	render: function(){

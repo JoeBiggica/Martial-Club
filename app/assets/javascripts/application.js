@@ -21,7 +21,15 @@
 //= require ./libraries/bootstrap
 
 //= require ./backbone/main_script
+
 //= require ./backbone/models/SchoolModel
 //= require ./backbone/collections/SchoolCollection
 //= require ./backbone/views/SchoolView
 //= require ./backbone/views/SchoolListView
+
+//= require ./backbone/models/StyleModel
+//= require ./backbone/collections/StyleCollection
+//= require ./backbone/views/StyleView
+//= require ./backbone/views/StyleListView
+
+//= require ./backbone/views/FormView

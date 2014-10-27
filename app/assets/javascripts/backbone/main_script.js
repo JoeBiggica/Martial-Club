@@ -1,32 +1,51 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
-var collection;
 
 MartialClub.initialize = function(){
-	collection = new MartialClub.Collections.SchoolCollection();
+	var schoolsCollection = new MartialClub.Collections.SchoolCollection();
+	var stylesCollection = new MartialClub.Collections.StyleCollection();
 
-	var listView = new MartialClub.Views.SchoolListView({
-		collection: collection,
-		el: $('.MartialClub-list')
+	var schoolsListView = new MartialClub.Views.SchoolListView({
+		collection: schoolsCollection,
+		el: $('.schools-list')
 	});
 
-	collection.fetch();
+	var stylesListView = new MartialClub.Views.StyleListView({
+		collection: stylesCollection,
+		el: $('.styles-list')
+	})
 
-	// $('.penguins').find('form').on('submit', function(e){
-	// 	e.preventDefault();
-	// 	var penguinName = $('input').val();
-	// 	$('input').val('')
-	// 	collection.create({name: penguinName})
-	// })
+	schoolsCollection.fetch();
+	stylesCollection.fetch();
+
+	var formView = new MartialClub.Views.FormView({ el: $('.add-school-form'), collection: schoolsCollection })
+
 }
 
 
 $(function(){
+
 	MartialClub.initialize();
 
 	$('.schools-button').on('click', function(){
-		$('.below-header').toggle();
-		$('.schools').toggle();
+
+		var schoolsCollection = new MartialClub.Collections.SchoolCollection();
+		var schoolsListView = new MartialClub.Views.SchoolListView({
+			collection: schoolsCollection,
+			el: $('.schools-list')
+		});
+
+		schoolsCollection.fetch();
 	});
+
+	$('.styles-button').on('click', function() {
+		
+		var stylesCollection = new MartialClub.Collections.StyleCollection();
+		var stylesListView = new MartialClub.Views.StyleListView({
+			collection: stylesCollection,
+			el: $('.styles-list')
+		})
+		stylesCollection.fetch();
+	})
 
 });
 

@@ -6,13 +6,15 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
 
-  get '/main', to: 'main#index'
+  # get '/main', to: 'main#index'
 
   resources :users do 
     resources :memberships
     resources :followers
     resources :schools
   end
+
+
 
   #     user_memberships GET    /users/:user_id/memberships(.:format)              memberships#index
   #                      POST   /users/:user_id/memberships(.:format)              memberships#create
@@ -52,6 +54,8 @@ Rails.application.routes.draw do
     resources :followers
     resources :styles
   end
+
+  resources :styles
 
 #     school_memberships GET    /schools/:school_id/memberships(.:format)          memberships#index
 #                        POST   /schools/:school_id/memberships(.:format)          memberships#create
