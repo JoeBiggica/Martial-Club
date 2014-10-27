@@ -7,6 +7,28 @@ class SchoolsController < ApplicationController
 		end
 	end
 
+	def create
+		school = School.create({
+			name: params["name"],
+			country_of_origin: params["country_of_origin"],
+			description: params["description"],
+			lineage: params["lineage"],
+			address: params["address"],
+			city: params["city"],
+			state: params["state"],
+			zipcode: params["zipcode"],
+			phone_number: params["phone_number"],
+			email: params["email"],
+			site_link: params["site_link"],
+			facebook_link: params["facebook_link"],
+			twitter_link: params["twitter_link"],	
+		})
+
+  		respond_to do |format|
+    		format.json { render :json => school }
+		end
+	end
+
 	def show 
 		school = School.find(params["id"])
 		styles = school.styles
@@ -32,6 +54,8 @@ class SchoolsController < ApplicationController
   #   		format.json { render :json => school_info }
 		# end
 	end
+
+
 
 
 end
