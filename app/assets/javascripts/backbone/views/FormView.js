@@ -28,6 +28,8 @@ MartialClub.Views.FormView = Backbone.View.extend({
 		schoolsCollection.fetch().done(function() {
 			schoolsCollection.create({
 				name: name,
+				style: style,
+				new_style: newStyle,
 				country_of_origin: country,
 				description: description,
 				lineage: lineage,
@@ -46,8 +48,6 @@ MartialClub.Views.FormView = Backbone.View.extend({
 		stylesCollection.fetch().done(function() {
 			if (newStyle != ""){
 				stylesCollection.create({name: newStyle})
-			} else {
-				stylesCollection.create({name: style})
 			};
 		});
 	},

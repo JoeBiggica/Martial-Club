@@ -5,10 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+<!-- School-List Template -->
+<!--  					  -->
+<!--      				  -->
   <script type="text/template" id="school-list-template">
   	<a id="school-<%%= school.id %>" class="school-name"><%%= school.name %></a>
   </script>
 
+<!-- School-Page Template -->
+<!--  					  -->
+<!--      				  -->
   <script type="text/template" id="school-page-template">
   	<div class="school-page" id="school-page-<%%= school.id %>">
 		<div class="row school-header">
@@ -61,11 +67,40 @@
 	</div>
   </script>
 
+<!-- Style-List Template  -->
+<!--  					  -->
+<!--      				  -->
   <script type="text/template" id="style-list-template">
-  	<a id="style-<%%= style.id %>" class="style-name"><%%= style.name %></a> 
+  	<a  data-toggle="modal" data-target="#style-info" id="style-<%%= style.id %>" class="style-name"><%%= style.name %></a> 
   </script>
 
+<!-- Schools-Modal Template  -->
+<!--  					     -->
+<!--      				     -->
+	<script id="schools-modal-template" type="text/template">
+		<div class="modal-header">
+
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+			<h4 class="modal-title" id="myModalLabel">Schools that teach this style</h4>
+
+			 <div class="modal-body">
+			 	<ul>
+			 		<div id="map-canvas-single"></div>
+					<%% _.each(schools, function(school){ %>
+						<li>
+							<h3><%%= school.name %></h3>
+							Address: <h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
+
+						</li>
+					<%% }); %>
+				</ul>
+			</div>
+		</div>
+	</script>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -73,6 +108,10 @@
 </head>
 <body>
 	<div class="container">
+
+<!--    Static Header     -->
+<!--  					  -->
+<!--      				  -->
 		<div class="row header-1">
 			<section class="col-md-3 col-md-offset-1">
 				<h4>Logo here</h4>
@@ -101,6 +140,9 @@
 			<button class="col-md-3 news-button">News</button>
 		</nav>
 
+<!--    Create-School Modal     -->
+<!--  					        -->
+<!--      				        -->
 		<button data-toggle="modal" data-target="#info">
 		  Build School
 		</button>
@@ -199,7 +241,21 @@
 				</div>
 			</div>
 		</div>
-		
+
+<!--    Schools-With-Style Modal Shell   -->
+<!--  					  								       -->
+<!--      		     								       -->
+		<div class="modal fade" id="style-info" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+						
+				</div>
+			</div>
+		</div>
+
+<!--    Transform Area     -->
+<!--  					   -->
+<!--      				   -->
 		<div class="transform">
 			<%= yield %>
 		</div>

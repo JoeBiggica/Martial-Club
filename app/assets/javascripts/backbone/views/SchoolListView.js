@@ -10,11 +10,5 @@ MartialClub.Views.SchoolListView = Backbone.View.extend({
 		school.render();
 		
 		this.$el.append(school.el)
-		// var self = this;
-		// this.$el.empty();
-		// _.each(this.collection.models, function(school){
-		// 	var schoolView = new MartialClub.Views.SchoolView({model: school})
-		// 	self.$el.append( schoolView.render() );
-		// })
 	}
 })

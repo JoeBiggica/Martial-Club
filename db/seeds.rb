@@ -20,10 +20,10 @@ User.create(first_name: 'Conor', email: 'conor@gmail.com', style: 'MMA', passwor
 User.create(first_name: 'Adrian', email: 'adrian@gmail.com', style: 'Krav Maga', password: 'adrian')
 User.create(first_name: 'Jeff', email: 'jeff@gmail.com', style: 'Karate', password: 'jeff')
 
-School.create(name: "Fong's Hung Ga Kung Fu")
-School.create(name: "Tiger Schulmann's Mixed Martial Arts")
-School.create(name: "Dragon Kim's Karate")
-School.create(name: "Krav Maga Federation")
+School.create(name: "Fong's Hung Ga Kung Fu", address: "95 Lincoln Ave", city: "Staten Island", state: "NY")
+School.create(name: "Tiger Schulmann's Mixed Martial Arts", address: "2nd Ave", city: "New York", state: "NY")
+School.create(name: "Dragon Kim's Karate", address: "933 Richmond Ave", city: "Staten Island", state: "NY")
+School.create(name: "Krav Maga Federation", address: "124 W 25th St", city: "New York", state: "NY")
 School.create(name: "Urban Martial Arts")
 School.create(name: "Vitor Shaolin's Brazilian Jiu Jitsu NYC")
 

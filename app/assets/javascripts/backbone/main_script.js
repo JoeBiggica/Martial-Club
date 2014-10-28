@@ -41,7 +41,7 @@ $(function(){
 	});
 
 	$('#add-school').on('click', function(){
-		schoolsInitialize();
+		
 	});
 
 });

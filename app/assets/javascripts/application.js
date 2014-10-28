@@ -34,5 +34,6 @@
 //= require ./backbone/views/StyleListView
 
 //= require ./backbone/views/FormView
+//= require ./backbone/views/SchoolsModalView
 
 

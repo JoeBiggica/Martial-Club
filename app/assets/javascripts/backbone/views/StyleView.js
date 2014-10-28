@@ -10,16 +10,12 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	template: _.template( $('#style-list-template').html() ),
 
 	events: {
-		"click a.style-name" : "seeStyleInfo",
+		"click a.style-name" : "seeSchools",
 	},
 
-	seeStyleInfo: function() {
-		
-		// $('.below-header').empty();
-		// $('.below-header').html(this.schoolPageTemplate( { school: this.model.toJSON() }));
-		
-		// $('.schools').toggle();
-		// schoolPage.toggle();
+	seeSchools: function() {
+		var schoolWithStyle = this.model.attributes.schools
+		var modal = new MartialClub.Views.SchoolsModalView({ model: schoolWithStyle })
 	},
 
 	render: function(){
