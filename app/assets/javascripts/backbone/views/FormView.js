@@ -1,15 +1,17 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 var schoolsCollection = new MartialClub.Collections.SchoolCollection();
+var stylesCollection = new MartialClub.Collections.StyleCollection();
 
 MartialClub.Views.FormView = Backbone.View.extend({
 	events: {
 		"click button#add-school" : "createSchool",
 	},
 	createSchool: function() {
-		console.log(this.$el.find('input[name="school-name"]').val())
+
 		var name = this.$el.find('input[name="school-name"]').val();
-		var style = this.$el.find('input[name="school-style"]').val();
+		var style = this.$el.find('select[name="school-style"]').val();
+		var newStyle = this.$el.find('input[name="new-style"]').val();
 		var country = this.$el.find('input[name="school-country"]').val();
 		var description = this.$el.find('textarea[name="school-description"]').val();
 		var lineage = this.$el.find('textarea[name="school-lineage"]').val();
@@ -38,7 +40,15 @@ MartialClub.Views.FormView = Backbone.View.extend({
 				site_link: siteLink,
 				facebook_link: facebookLink,
 				twitter_link: twitter
-			})
-		})
-	}
+			});
+		});
+
+		stylesCollection.fetch().done(function() {
+			if (newStyle != ""){
+				stylesCollection.create({name: newStyle})
+			} else {
+				stylesCollection.create({name: style})
+			};
+		});
+	},
 });

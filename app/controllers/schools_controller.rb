@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
 	
 	def index
-		schools = School.all.to_json(:include => :styles, :include => :users)
+		schools = School.all.to_json(include: [:styles, :users])
 		respond_to do |format|
     		format.json { render :json => schools }
 		end
@@ -21,8 +21,13 @@ class SchoolsController < ApplicationController
 			email: params["email"],
 			site_link: params["site_link"],
 			facebook_link: params["facebook_link"],
-			twitter_link: params["twitter_link"],	
+			twitter_link: params["twitter_link"],
+			user_id: session["user_id"]	
 		})
+		
+		UserSchoolStyle.create({user_id: session["user_id"], style_id: Style.all.last.id, school_id: school.id})
+
+
 
   		respond_to do |format|
     		format.json { render :json => school }
