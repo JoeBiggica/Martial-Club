@@ -14,11 +14,11 @@ UserSchoolStyle.delete_all
 Logo.delete_all
 Photo.delete_all
 
-User.create(first_name: 'Joe', email: 'joe.biggica@gmail.com', style: 'Hung Ga Kung Fu', password: 'joe')
-User.create(first_name: 'Tim', email: 'tim@gmail.com', style: 'MMA', password: 'tim')
-User.create(first_name: 'Conor', email: 'conor@gmail.com', style: 'MMA', password: 'conor')
-User.create(first_name: 'Adrian', email: 'adrian@gmail.com', style: 'Krav Maga', password: 'adrian')
-User.create(first_name: 'Jeff', email: 'jeff@gmail.com', style: 'Karate', password: 'jeff')
+User.create(first_name: 'Joe', email: 'joe.biggica@gmail.com', style: 'Hung Ga Kung Fu', password: 'joe', profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg")
+User.create(first_name: 'Tim', email: 'tim@gmail.com', style: 'MMA', password: 'tim', profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg")
+User.create(first_name: 'Conor', email: 'conor@gmail.com', style: 'MMA', password: 'conor', profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg")
+User.create(first_name: 'Adrian', email: 'adrian@gmail.com', style: 'Krav Maga', password: 'adrian', profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg")
+User.create(first_name: 'Jeff', email: 'jeff@gmail.com', style: 'Karate', password: 'jeff', profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg")
 
 School.create(name: "Fong's Hung Ga Kung Fu", address: "95 Lincoln Ave", city: "Staten Island", state: "NY")
 School.create(name: "Tiger Schulmann's Mixed Martial Arts", address: "2nd Ave", city: "New York", state: "NY")

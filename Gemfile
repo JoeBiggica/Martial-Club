@@ -6,7 +6,6 @@ gem 'rails', '4.1.4'
 gem 'pry'
 gem 'httparty'
 gem 'carrierwave'
-gem 'backbone-rails'
 gem "font-awesome-rails"
 # Use postgresql as the database for Active Record
 gem 'pg'

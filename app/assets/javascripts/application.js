@@ -15,23 +15,26 @@
 //= require jquery_ujs
 //= require turbolinks
 
-//= require backbone-rails
-// require ./libraries/backbone_development.js
-// require ./libraries/underscore.js
+//= require ./libraries/underscore
+//= require ./libraries/backbone
 //= require ./libraries/bootstrap
 
 //= require ./backbone/main_script
 
 //= require ./backbone/models/SchoolModel
 //= require ./backbone/models/StyleModel
+//= require ./backbone/models/UserModel
 
 //= require ./backbone/collections/SchoolCollection
 //= require ./backbone/collections/StyleCollection
+//= require ./backbone/collections/UserCollection
 
 //= require ./backbone/views/SchoolView
 //= require ./backbone/views/SchoolListView
 //= require ./backbone/views/StyleView
 //= require ./backbone/views/StyleListView
+//= require ./backbone/views/UserListView
+//= require ./backbone/views/UserView
 
 //= require ./backbone/views/FormView
 //= require ./backbone/views/SchoolsModalView

@@ -99,6 +99,47 @@
 		</div>
 	</script>
 
+<!-- User-List Template  -->
+<!--  					  -->
+<!--      				  -->
+  <script type="text/template" id="user-list-template">
+  	<a  id="user-<%%= user.id %>"><%%= user.name %></a> 
+  </script>
+
+<!-- User-Page Template -->
+<!--  					  -->
+<!--      				  -->
+  <script type="text/template" id="user-page-template">
+  	<div class="user-page" id="user-page-<%%= user.id %>">
+			<div class="row user-header">
+				<section class="col-md-3 col-md-offset-1">
+					<img src="<%%= user.profile_url %>" class="profile-pic-main">
+				</section>
+
+				<div class="row">
+					<section class="col-md-3 col-md-offset-2">
+						<h2><%%= user.first_name %> <%%= user.last_name %><h2>
+					</section>
+				</div>
+				<div class="row">
+					<section class="col-md-3">
+						<%% _.each(user.styles, function(style){ %>
+							<h3><%%= style.name %></h3>
+						<%% }); %>
+					</section>
+				</div>
+				<div class="row">
+					<section class="col-md-3">
+						<%% _.each(user.schools, function(school){ %>
+							<h3><%%= school.name %></h3>
+						<%% }); %>
+					</section>
+				</div>
+
+			</div>
+		</div>
+  </script>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
@@ -116,12 +157,18 @@
 			<section class="col-md-3 col-md-offset-1">
 				<h4>Logo here</h4>
 			</section>
+
 			<section class="col-md-5">
 				<input type="text" name="search" placeholder="Search for schools, styles, etc" style="width: 200px; height: 30px; margin-top: 10px;"> 
 				<i class="fa fa-search fa-2x"></i>
 			</section>
-			<section class="col-md-3">
-				<h4><%= session["user_id"] %></h4>
+
+			<section class="col-sm-2">
+				<div class="user_id" id="<%= session['user_id'] %>"></div>
+				<img src="<%= User.find(session['user_id']).profile_url %>" class="profile-pic-home"> <%= User.find(session['user_id']).first_name %>
+			</section>
+
+			<section class="col-sm-1">
 				<%= form_tag("/session", method: "delete") do %>
 	  				<%= submit_tag("Logout") %>
 				<% end %>
