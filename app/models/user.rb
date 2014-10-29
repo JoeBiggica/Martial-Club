@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	self.has_secure_password
-	validates :password, :email, presence: true
-	# validates :password, uniqueness: true
+	validates :email, uniqueness: true
 	has_many :memberships
 	has_many :schools, through: :memberships
 	has_many :followers

@@ -1,0 +1,112 @@
+li {
+	cursor: pointer;
+}
+
+img {
+	cursor: pointer;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+i {
+	cursor: pointer;
+}
+
+i:hover {
+	color: red;
+}
+
+#logo-corner {
+	height: 55px;
+	float: left;
+}
+
+#user-corner {
+	float: right;
+}
+
+#login-name {
+	cursor: pointer;
+	margin-top: 18px;
+}
+
+#login-name:hover {
+	color: red;
+}
+
+.profile-pic-home {
+	height: 40px;
+	margin-top: 8px;
+}
+
+input[type=submit] {
+	-webkit-appearance: button;
+	cursor: pointer;
+	margin-top: 17px;
+	margin-left: 48px;
+}
+
+.header-1 {
+	text-align: center;
+	border: 2px solid black;
+	height: 63px;
+}
+
+.header-2 {
+	text-align: center;
+	height: 300px;
+
+}
+
+.header-nav {
+	text-align: center;
+}
+
+.build {
+	text-align: center;
+}
+
+.schools-list {
+	text-decoration: none;
+	list-style-type: none
+}
+
+.school-header {
+	text-align: center;
+}
+
+.contact-info {
+	text-align: center;
+}
+
+#map-canvas {
+	 border-radius: 10px;
+	 height: 300px;
+	 margin: 0 auto;
+}
+
+.school-about {
+	text-align: center
+}
+
+.school-students {
+	text-align: center
+}
+
+.school-followers {
+	text-align: center
+}
+
+.students-row img {
+	height: 50px;
+}
+
+
+
+
+
+
+

@@ -63,6 +63,7 @@ function getUser(){
 
 
 $(function(){
+	transform()
 	
 	var AppRouter = Backbone.Router.extend({
 		routes: {
@@ -95,13 +96,12 @@ $(function(){
 		stylesInitialize();
 	});
 
-	$('#add-school').on('click', function(){
-		
-	});
-
 	$('.profile-pic-home').on('click', function(){
 		getUser()
+	});
 
+	$('#login-name').on('click', function(){
+		getUser()
 	})
 
 	Backbone.history.start();

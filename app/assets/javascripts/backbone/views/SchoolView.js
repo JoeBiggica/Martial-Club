@@ -1,5 +1,7 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
+var memberships = new MartialClub.Collections.MembershipCollection();
+
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo( this.model, "change", this.render );
@@ -12,6 +14,8 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 	events: {
 		"click a.school-name" : "seeSchool",
+		// "click a.join-button" : "joinSchool",
+		// "click a.leave-button" : "leaveSchool"
 	},
 
 	seeSchool: function() {
@@ -47,13 +51,44 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		  		});
 			}
 		});
+
+		$('.join-button').on('click', function(){
+			var schoolId = $('.school-id')[0].id
+			var userId = $('.user_id')[0].id
+
+			memberships.fetch().done(function() {
+				memberships.create({
+					user_id: userId,
+					school_id: schoolId
+				});
+			});
+
+
+			$('.join-button').empty();
+
+		});
+
+		$('.leave-button').on('click', function(){
+			var schoolId = $('.school-id')[0].id
+			var userId = $('.user_id')[0].id
+
+			memberships.fetch().done(function() {
+				membership = memberships.where({user_id: Number(userId), school_id: Number(schoolId)})[0]
+				membership.destroy();
+			})
+
+			$('.leave-button').empty();
+			$('#joined').empty();
+
+		});
+
+
+
 	},
 
 	render: function(){
 		this.$el.empty();
 		this.$el.html(this.template( { school: this.model.toJSON() }));
-
-
 	},
 	
 });

@@ -7,6 +7,7 @@ gem 'pry'
 gem 'httparty'
 gem 'carrierwave'
 gem "font-awesome-rails"
+gem "rails_12factor"
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

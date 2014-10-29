@@ -1,4 +1,8 @@
 class SessionController < ApplicationController
+	def index
+		render :new, layout: 'signup_login'
+	end
+	
 	def new
 		render :new, layout: 'signup_login'
 	end

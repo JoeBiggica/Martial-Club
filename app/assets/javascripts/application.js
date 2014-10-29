@@ -24,10 +24,12 @@
 //= require ./backbone/models/SchoolModel
 //= require ./backbone/models/StyleModel
 //= require ./backbone/models/UserModel
+//= require ./backbone/models/MembershipModel
 
 //= require ./backbone/collections/SchoolCollection
 //= require ./backbone/collections/StyleCollection
 //= require ./backbone/collections/UserCollection
+//= require ./backbone/collections/MembershipCollection
 
 //= require ./backbone/views/SchoolView
 //= require ./backbone/views/SchoolListView

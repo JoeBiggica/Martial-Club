@@ -30,5 +30,20 @@ class UsersController < ApplicationController
 
 	end
 
+	def update
+		user = User.find(params["id"])
+		
+		user.update(
+			first_name: params["first_name"],
+			last_name: params["last_name"],
+			profile_url: params["profile_url"]
+		)
+
+		respond_to do |format|
+    		format.json { render :json => user }
+		end
+
+	end
+
 
 end

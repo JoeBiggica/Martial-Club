@@ -17,17 +17,39 @@
 <!--      				  -->
   <script type="text/template" id="school-page-template">
   	<div class="school-page" id="school-page-<%%= school.id %>">
+  		<div class="school-id" id="<%%= school.id %>"></div>
 		<div class="row school-header">
 			<section class="col-md-6 col-md-offset-3">
 				<h1>Logo</h1>
 				<h2><%%= school.name %></h2>
-				<%% _.each(school.styles, function(style){ %>
-					<h3><%%= style.name %></h3>
-				<%% }); %>
+
+				<% if session['user_id'] %>
+
+					<%% _.each(school.users, function(user){ %>
+
+						<%% if ($('.user_id')[0].id == user.id) { %>
+							<h4 id="joined">Joined<h4>
+							<a class="leave-button"><h5>Leave<h4></5></a>
+
+						<%% } else { %>
+							<a class="join-button"><h4>Join<h4></a>
+						<%% }; %>	
+
+					<%% }); %>
+						
+				
+				<% end %>
+				<label><h3>Styles</h3>
+					<%% _.each(school.styles, function(style){ %>
+						<h3><%%= style.name %></h3>
+					<%% }); %>
+				</label>
 			</section>
 
 			<article class="col-md-4 col-md-offset-4 contact-info">
-				<div id="map-canvas" style="height: 200px"></div>
+				<div class="row">
+					<div id="map-canvas"></div>
+				</div>
 				
 				Phone:<h4><%%= school.phone_number %></h4>
 				Address:<h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
@@ -49,9 +71,11 @@
 		<div class="row school-students">
 			<section class="col-md-10 col-md-offset-1">
 				<h1>Students</h1>
-				<%% _.each(school.users, function(user){ %>
-					<h3><%%= user.first_name %> <%%= user.last_name %></h3>
-				<%% }); %>
+				<div class="row students-row">
+					<%% _.each(school.users, function(user){ %>
+						<img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3>
+					<%% }); %>
+				</div>
 			</section>
 		</div>
 
@@ -166,7 +190,7 @@
 			<section class="col-md-3 col-md-offset-1">
 				<img src="<%%= user.profile_url %>" class="profile-pic-main"><br/>
 				<label><h4>Profile Picture URL</h4>
-					<input type="text" name="profile_url" placeholder="Profile Picture URL">
+					<input type="text" name="profile_url" value="<%%= user.profile_url %>">
 				</label>
 			</section>
 		
@@ -175,10 +199,10 @@
 				<div class="row">
 					<div class="col-md-3 col-md-offset-2">
 						<label><h4>First Name:</h4> 
-							<input type="text" name="first_name" placeholder="<%%= user.first_name %>">
+							<input type="text" name="first_name" value="<%%= user.first_name %>">
 						</label><br/>
 						<label><h4>Last Name:</h4> 
-							<input type="text" name="last_name" placeholder="<%%= user.last_name %>">
+							<input type="text" name="last_name" value="<%%= user.last_name %>">
 						</label><br/>
 					</div>
 					<div class="col-md-3 col-md-offset-3">
@@ -230,44 +254,56 @@
 <!--  					  -->
 <!--      				  -->
 		<div class="row header-1">
-			<section class="col-md-3 col-md-offset-1">
-				<h4>Logo here</h4>
+			<section class="col-md-3">
+				<img id="logo-corner" src="/assets/Logo.png">
 			</section>
 
-			<section class="col-md-5">
+			<section class="col-md-6">
 				<input type="text" name="search" placeholder="Search for schools, styles, etc" style="width: 200px; height: 30px; margin-top: 10px;"> 
 				<i class="fa fa-search fa-2x"></i>
 			</section>
 
-			<section class="col-md-3">
-				<div class="user_id" id="<%= session['user_id'] %>"></div>
-				<img src="<%= User.find(session['user_id']).profile_url %>" class="profile-pic-home"> 
-				<%= User.find(session['user_id']).first_name %>
-				<%= form_tag("/session", method: "delete") do %>
-	  				<%= submit_tag("Logout") %>
+			<section class="col-md-3" id="user-corner">
+				<% if session['user_id'] %>
+					<div class="row profile-section">
+						<div class="user_id" id="<%= session['user_id'] %>"></div>
+						<img src="<%= User.find(session['user_id']).profile_url %>" class="col-sm-3 profile-pic-home"> 
+						<h5 class="col-sm-1"id="login-name"><%= User.find(session['user_id']).first_name %></h5>
+						<div class="col-sm-1 col-sm-offset-2" id="logout">
+							<%= form_tag("/session", method: "delete") do %>
+				  				<%= submit_tag("Logout") %>
+							<% end %>
+						</div>
+					</div>
+				<% else %>
+					<%= form_tag("/login", method: "get") do %>
+		  				<%= submit_tag("Login") %>
+					<% end %>
 				<% end %>
 			</section>
 
 		</div>
 
 		<div class="row header-2">
-			<main class="col-md-10 col-md-offset-1">
-				<h1>Martial Club</h1>
+			<main class="col-md-12">
+				<img id="logo-center" src="/assets/Logo.png">
 			</main>
 		</div>
 
 		<nav class="row header-nav">
-			<button class="col-md-3 col-md-offset-1 schools-button">Schools</button>
-			<button class="col-md-3 styles-button">Styles</button>
-			<button class="col-md-3 news-button">News</button>
+			<button class="col-md-2 col-md-offset-2 schools-button">Schools</button>
+			<button class="col-md-2 col-md-offset-1 styles-button">Styles</button>
+			<button class="col-md-2 col-md-offset-1 news-button">News</button>
 		</nav>
 
 <!--    Create-School Modal     -->
 <!--  					        -->
 <!--      				        -->
-		<button data-toggle="modal" data-target="#info">
-		  Build School
-		</button>
+		<div class="row bulid">
+			<a class="col-md-3 col-md-offset-6" data-toggle="modal" data-target="#info">
+			  Build School
+			</a>
+		</div>
 
 		<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

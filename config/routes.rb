@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :schools
   end
 
+
   resources :schools do 
     resources :memberships
     resources :followers
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :styles
+  resources :memberships
 
 
   # The priority is based upon order of creation: first created -> highest priority.
