@@ -111,33 +111,109 @@
 <!--      				  -->
   <script type="text/template" id="user-page-template">
   	<div class="user-page" id="user-page-<%%= user.id %>">
-			<div class="row user-header">
-				<section class="col-md-3 col-md-offset-1">
-					<img src="<%%= user.profile_url %>" class="profile-pic-main">
-				</section>
+		<div class="row user-header">
+			<section class="col-md-3 col-md-offset-1">
+				<img src="<%%= user.profile_url %>" class="profile-pic-main">
+			</section>
+		
 
+			<section class="col-md-8">
 				<div class="row">
-					<section class="col-md-3 col-md-offset-2">
+					<div class="col-md-3 col-md-offset-2">
 						<h2><%%= user.first_name %> <%%= user.last_name %><h2>
-					</section>
+					</div>
+					<div class="col-md-3 col-md-offset-3">
+						<i class="fa fa-cog fa-spin fa-3x edit-button"></i>
+					</div>
 				</div>
 				<div class="row">
-					<section class="col-md-3">
-						<%% _.each(user.styles, function(style){ %>
-							<h3><%%= style.name %></h3>
-						<%% }); %>
-					</section>
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Styles:</h3>
+							<%% _.each(user.styles, function(style){ %>
+								<h4><%%= style.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
 				</div>
 				<div class="row">
-					<section class="col-md-3">
-						<%% _.each(user.schools, function(school){ %>
-							<h3><%%= school.name %></h3>
-						<%% }); %>
-					</section>
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Schools:</h3>
+							<%% _.each(user.schools, function(school){ %>
+								<h4><%%= school.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
 				</div>
-
-			</div>
+			</section>
 		</div>
+
+		<div class="row user-info">
+			<section class="col-md-3 col-md-offset-1">
+				<h3><%% user.email %></h3>
+			</section>
+		</div>
+
+			
+	</div>
+  </script>
+
+<!-- Edit-User Template -->
+<!--  					  -->
+<!--      				  -->
+  <script type="text/template" id="edit-user-template">
+  	<div class="user-page" id="user-page-<%%= user.id %>">
+		<div class="row user-header">
+			<section class="col-md-3 col-md-offset-1">
+				<img src="<%%= user.profile_url %>" class="profile-pic-main"><br/>
+				<label><h4>Profile Picture URL</h4>
+					<input type="text" name="profile_url" placeholder="Profile Picture URL">
+				</label>
+			</section>
+		
+
+			<section class="col-md-8">
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h4>First Name:</h4> 
+							<input type="text" name="first_name" placeholder="<%%= user.first_name %>">
+						</label><br/>
+						<label><h4>Last Name:</h4> 
+							<input type="text" name="last_name" placeholder="<%%= user.last_name %>">
+						</label><br/>
+					</div>
+					<div class="col-md-3 col-md-offset-3">
+						<i class="fa fa-check-circle fa-3x save-button"></i>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Styles:</h3>
+							<%% _.each(user.styles, function(style){ %>
+								<h4><%%= style.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Schools:</h3>
+							<%% _.each(user.schools, function(school){ %>
+								<h4><%%= school.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="row user-info">
+			<section class="col-md-3 col-md-offset-1">
+				<h3><%% user.email %></h3>
+			</section>
+		</div>
+
+			
+	</div>
   </script>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -163,16 +239,15 @@
 				<i class="fa fa-search fa-2x"></i>
 			</section>
 
-			<section class="col-sm-2">
+			<section class="col-md-3">
 				<div class="user_id" id="<%= session['user_id'] %>"></div>
-				<img src="<%= User.find(session['user_id']).profile_url %>" class="profile-pic-home"> <%= User.find(session['user_id']).first_name %>
-			</section>
-
-			<section class="col-sm-1">
+				<img src="<%= User.find(session['user_id']).profile_url %>" class="profile-pic-home"> 
+				<%= User.find(session['user_id']).first_name %>
 				<%= form_tag("/session", method: "delete") do %>
 	  				<%= submit_tag("Logout") %>
 				<% end %>
 			</section>
+
 		</div>
 
 		<div class="row header-2">
