@@ -1,3 +1,13 @@
+.sign-up-box {
+	background-color: rgb(189,0,33);
+	height: 250px;
+}
+
+.login-box {
+	background-color: rgb(189,0,33);
+	height: 150px;
+}
+
 li {
 	cursor: pointer;
 }
@@ -9,6 +19,16 @@ img {
 a {
 	cursor: pointer;
 	text-decoration: none;
+	color: black
+}
+
+a:link {
+    color: black;
+}
+
+a:hover {
+	color: rgb(189,0,33);
+	font-size: 101%;
 }
 
 i {
@@ -16,7 +36,7 @@ i {
 }
 
 i:hover {
-	color: red;
+	color: rgb(189,0,33);
 }
 
 #logo-corner {
@@ -38,7 +58,7 @@ i:hover {
 }
 
 #login-name:hover {
-	color: red;
+	color: rgb(189,0,33);
 }
 
 #search-bar {
@@ -71,6 +91,7 @@ input[type=submit] {
 	text-align: center;
 	border: 2px solid black;
 	height: 63px;
+	margin-top: 10px;
 }
 
 .header-2 {
@@ -107,6 +128,8 @@ input[type=submit] {
 
 .school-header {
 	text-align: center;
+	background-color: #D7C4BB;
+	margin-bottom: 10px;
 }
 
 .contact-info {
@@ -120,15 +143,32 @@ input[type=submit] {
 }
 
 .school-about {
-	text-align: center
+	height: 175px;
+	text-align: center;
+	background-color: #D7C4BB;
+	margin-bottom: 10px;
 }
 
 .school-students {
-	text-align: center
+	height: 175px;
+	text-align: center;
+	color: white;
+	background-color: rgb(189,0,33);
+	margin-bottom: 10px;
 }
 
+
 .school-followers {
-	text-align: center
+	height: 175px;
+	text-align: center;
+	color: white;
+	background-color: rgb(189,0,33);
+	margin-bottom: 10px;
+}
+
+.students-row {
+	text-align: center;
+	margin: 0 auto;
 }
 
 .students-row img {

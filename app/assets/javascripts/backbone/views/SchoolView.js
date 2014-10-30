@@ -1,6 +1,7 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 var memberships = new MartialClub.Collections.MembershipCollection();
+var styles
 
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
@@ -55,13 +56,17 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		$('.join-button').on('click', function(){
 			var schoolId = $('.school-id')[0].id
 			var userId = $('.user_id')[0].id
+			var style = $('.style-name').first().html()
 
 			memberships.fetch().done(function() {
 				memberships.create({
 					user_id: userId,
-					school_id: schoolId
+					school_id: schoolId,
+					style: style
 				});
 			});
+
+
 
 			$('.join-button').empty();
 

@@ -20,7 +20,7 @@
   		<div class="school-id" id="<%%= school.id %>"></div>
 		<div class="row school-header">
 			<section class="col-md-6 col-md-offset-3">
-				<h1>Logo</h1>
+				
 				<h2><%%= school.name %></h2>
 
 				<% if session['user_id'] %>
@@ -38,11 +38,13 @@
 
 				<label><h3>Styles</h3>
 					<%% _.each(school.styles, function(style){ %>
-						<h3><%%= style.name %></h3>
+						<h3 class="style-name"><%%= style.name %></h3>
 					<%% }); %>
 				</label>
 			</section>
+		</div>
 
+		<div class="row school-header-map">
 			<article class="col-md-4 col-md-offset-4 contact-info">
 				<div class="row">
 					<div id="map-canvas"></div>
@@ -66,11 +68,14 @@
 		</div>
 
 		<div class="row school-students">
-			<section class="col-md-10 col-md-offset-1">
+			<section class="col-md-10 col-md-offset-1 students-row">
 				<h1>Students</h1>
+
 				<div class="row students-row">
 					<%% _.each(school.users, function(user){ %>
-						<img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3>
+						<div class="col-sm-1">	
+							<img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3>
+						</div>
 					<%% }); %>
 				</div>
 			</section>
@@ -296,11 +301,13 @@
 <!--    Create-School Modal     -->
 <!--  					        -->
 <!--      				        -->
-		<div class="row bulid">
-			<a class="col-md-3 build-school" data-toggle="modal" data-target="#info">
-			  Build School
-			</a>
-		</div>
+		<% if session["user_id"] %>
+			<div class="row bulid">
+				<a class="col-md-3 build-school" data-toggle="modal" data-target="#info">
+				  Build School
+				</a>
+			</div>
+		<% end %>
 
 		<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

@@ -110,6 +110,9 @@ $(function(){
 		getUser()
 	})
 
+	$('.join-button').on('click', function(){
+		schoolsInitialize();
+	})
 	Backbone.history.start();
 
 });
