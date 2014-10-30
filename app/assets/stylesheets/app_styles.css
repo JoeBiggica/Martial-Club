@@ -24,6 +24,10 @@ i:hover {
 	float: left;
 }
 
+#logo-center {
+	height: 250px;
+}
+
 #user-corner {
 	float: right;
 }
@@ -35,6 +39,20 @@ i:hover {
 
 #login-name:hover {
 	color: red;
+}
+
+#search-bar {
+	width: 200px; 
+	height: 30px; 
+	margin-top: 15px;
+}
+
+.build-school {
+	margin-left: 45.333333%;
+}
+
+.fa-search {
+	margin-left: 5px;
 }
 
 .profile-pic-home {
@@ -57,21 +75,34 @@ input[type=submit] {
 
 .header-2 {
 	text-align: center;
-	height: 300px;
-
+	height: 250px;
 }
 
 .header-nav {
 	text-align: center;
+	background-color: rgb(189,0,33);
+	height: 13px;
+}
+
+.header-nav button{
+	font-size: 20px;
+	height: 35px;
 }
 
 .build {
-	text-align: center;
+	
 }
 
 .schools-list {
 	text-decoration: none;
-	list-style-type: none
+	list-style-type: none;
+	font-size: 20px;
+}
+
+.styles-list {
+	text-decoration: none;
+	list-style-type: none;
+	font-size: 20px;
 }
 
 .school-header {

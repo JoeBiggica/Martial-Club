@@ -3,7 +3,7 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 function transform(){
 	$('.transform').empty();
-	$('.transform').html("<div class='row schools'><ul class='col-md-4 col-md-offset-1 schools-list'></ul></div><div class='row styles'><ul class='col-md-4 col-md-offset-1 styles-list'></ul></div><div class='row users'><ul class='col-md-4col-md-offset-1 users-list'></ul></div>");	
+	$('.transform').html("<div class='row schools'><ul class='col-md-4 col-md-offset-2 schools-list'></ul></div><div class='row styles'><ul class='col-md-4 col-md-offset-8 styles-list'></ul></div><div class='row users'><ul class='col-md-4col-md-offset-1 users-list'></ul></div>");	
 }
 
 function schoolsInitialize(){
@@ -60,23 +60,29 @@ function getUser(){
 
 	
 }
-
+var currentUser;
+$.get('/users/?returnUser=true').done(function(response){
+	 currentUser = response
+	console.log('soos')
+})
 
 $(function(){
+
+
 	transform()
 	
-	var AppRouter = Backbone.Router.extend({
-		routes: {
-			"schools": "schools",
-			"school": "school"
-		}
-	});
+	// var AppRouter = Backbone.Router.extend({
+	// 	routes: {
+	// 		"schools": "schools",
+	// 		"school": "school"
+	// 	}
+	// });
 
-	var router = new AppRouter;
-	router.on('route:schools', function(){
-			console.log('soos')
-			schoolsInitialize();
-	});
+	// var router = new AppRouter;
+	// router.on('route:schools', function(){
+	// 		console.log('soos')
+	// 		schoolsInitialize();
+	// });
 
 
 

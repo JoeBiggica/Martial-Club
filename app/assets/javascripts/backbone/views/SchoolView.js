@@ -63,7 +63,6 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 				});
 			});
 
-
 			$('.join-button').empty();
 
 		});

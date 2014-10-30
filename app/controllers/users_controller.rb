@@ -1,10 +1,21 @@
 class UsersController < ApplicationController
 
 	def index
-		users = User.all.to_json(include: [:styles, :schools])
-		respond_to do |format|
-    		format.json { render :json => users }
+
+		if params[:returnUser] 
+			user = User.find(session["user_id"]).to_json(include: [:styles, :schools])
+			respond_to do |format|
+    			format.json { render :json => user }
+			end
+
+		else
+			users = User.all.to_json(include: [:styles, :schools])
+			respond_to do |format|
+    			format.json { render :json => users }
+			end
 		end
+
+		
 	end
 
 	def create

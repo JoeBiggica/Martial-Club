@@ -25,20 +25,17 @@
 
 				<% if session['user_id'] %>
 
-					<%% _.each(school.users, function(user){ %>
+					<%% if (_.where(currentUser.schools, {id: school.id })[0]) { %>
+						<h4 id="joined">Joined<h4>
+						<a class="leave-button"><h5>Leave</h5></a>
+					<%% } else { %>
+						<a class="join-button"><h4>Join<h4></a>
+					<%% }; %>
 
-						<%% if ($('.user_id')[0].id == user.id) { %>
-							<h4 id="joined">Joined<h4>
-							<a class="leave-button"><h5>Leave<h4></5></a>
 
-						<%% } else { %>
-							<a class="join-button"><h4>Join<h4></a>
-						<%% }; %>	
 
-					<%% }); %>
-						
-				
 				<% end %>
+
 				<label><h3>Styles</h3>
 					<%% _.each(school.styles, function(style){ %>
 						<h3><%%= style.name %></h3>
@@ -259,7 +256,7 @@
 			</section>
 
 			<section class="col-md-6">
-				<input type="text" name="search" placeholder="Search for schools, styles, etc" style="width: 200px; height: 30px; margin-top: 10px;"> 
+				<input type="text" name="search" placeholder="Search for schools, styles, etc" id="search-bar"> 
 				<i class="fa fa-search fa-2x"></i>
 			</section>
 
@@ -292,15 +289,15 @@
 
 		<nav class="row header-nav">
 			<button class="col-md-2 col-md-offset-2 schools-button">Schools</button>
-			<button class="col-md-2 col-md-offset-1 styles-button">Styles</button>
-			<button class="col-md-2 col-md-offset-1 news-button">News</button>
+			<button class="col-md-2 col-md-offset-4 styles-button">Styles</button>
+			<!-- <button class="col-md-2 col-md-offset-1 news-button">News</button> -->
 		</nav>
 
 <!--    Create-School Modal     -->
 <!--  					        -->
 <!--      				        -->
 		<div class="row bulid">
-			<a class="col-md-3 col-md-offset-6" data-toggle="modal" data-target="#info">
+			<a class="col-md-3 build-school" data-toggle="modal" data-target="#info">
 			  Build School
 			</a>
 		</div>

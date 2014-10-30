@@ -24,13 +24,13 @@ class SchoolsController < ApplicationController
 			twitter_link: params["twitter_link"],
 			user_id: session["user_id"]	
 		})
-		
-		new_style = Style.find_by(name: params["new_style"])
-		existing_style = Style.find_by(name: params["style"])
 
-		if new_style
-			UserSchoolStyle.create({user_id: session["user_id"], style_id: Style.all.last.id, school_id: school.id})
+		new_style = params["new_style"]
+		
+		if new_style != ""
+			UserSchoolStyle.create({user_id: session["user_id"], style_id: Style.all.last.id + 1, school_id: school.id})			
 		else
+			existing_style = Style.find_by(name: params["style"])
 			UserSchoolStyle.create({user_id: session["user_id"], style_id: existing_style.id, school_id: school.id})
 		end
 
