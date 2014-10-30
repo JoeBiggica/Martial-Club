@@ -3,7 +3,7 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 function transform(){
 	$('.transform').empty();
-	$('.transform').html("<div class='row schools'><ul class='col-md-4 col-md-offset-2 schools-list'></ul></div><div class='row styles'><ul class='col-md-4 col-md-offset-8 styles-list'></ul></div><div class='row users'><ul class='col-md-4col-md-offset-1 users-list'></ul></div>");	
+	$('.transform').html("<div class='row schools'><ul class='col-md-4 col-md-offset-2 schools-list'></ul></div><div class='row styles'><ul class='col-md-4 col-md-offset-8 styles-list'></ul></div><div class='row users'><ul class='col-md-4col-md-offset-1 users-list'></ul></div><div class='row search-results'></div>");	
 }
 
 function schoolsInitialize(){
@@ -112,6 +112,44 @@ $(function(){
 
 	$('.join-button').on('click', function(){
 		schoolsInitialize();
+	})
+
+// 
+// Search Bar
+// 
+var schoolsCollection = new MartialClub.Collections.SchoolCollection();
+var stylesCollection = new MartialClub.Collections.StyleCollection();
+
+	searchArray = []
+	function autoComplete(searchBar) {
+		stylesCollection.fetch().done(function() {
+			_.each(stylesCollection.models, function(model) {
+				searchArray.push(model.attributes.name)
+			});
+			searchBar.autocomplete({source: searchArray});
+		})
+		
+	};
+	autoComplete($('#search-bar'));
+
+	$('#search-bar').on('keyup', function(e) {
+		if (e.keyCode == 13) {
+			transform()
+			_.each(stylesCollection.models, function(model) {
+				
+				if ($('#search-bar').val() == model.attributes.name) {
+					var style = new MartialClub.Views.StyleView({ model:  model});
+					style.render();
+					
+					$('.search-results').append(style.el);
+				}
+			})
+		}
+
+		if ($('.search').val() == "") {
+		$('.search-items').empty();
+		}
+
 	})
 	Backbone.history.start();
 
