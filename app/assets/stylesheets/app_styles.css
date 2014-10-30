@@ -143,14 +143,14 @@ input[type=submit] {
 }
 
 .school-about {
-	height: 175px;
+	min-height: 175px;
 	text-align: center;
 	background-color: #D7C4BB;
 	margin-bottom: 10px;
 }
 
 .school-students {
-	height: 175px;
+	min-height: 175px;
 	text-align: center;
 	color: white;
 	background-color: rgb(189,0,33);
@@ -159,7 +159,7 @@ input[type=submit] {
 
 
 .school-followers {
-	height: 175px;
+	min-height: 175px;
 	text-align: center;
 	color: white;
 	background-color: rgb(189,0,33);
