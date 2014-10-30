@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row col-md-4 col-md-offset-4" style="text-align: center">
-		<h1>Sign up here</h1>
+		<h1 id="sign-up-head">Sign up here</h1>
 		<div class="sign-up-box">
 			<%= form_tag("/users", method: "post") do %>
 			  <%= label_tag(:signup_email, "Email:") %><br/>
@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="row col-md-4 col-md-offset-4" style="text-align: center">
-		<h2>Or Login</h2>
+		<h2 id="login-head">Or Login</h2>
 		<div class="login-box">
 			<%= form_tag("/session", method: "post") do %>
 			  <%= label_tag(:login_email, "Email:") %><br/>
