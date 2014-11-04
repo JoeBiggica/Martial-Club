@@ -87,6 +87,7 @@ i:hover {
 
 .fa-search {
 	margin-left: 5px;
+	margin-top: 2px;
 }
 
 .profile-pic-home {
@@ -103,9 +104,10 @@ input[type=submit] {
 
 .header-1 {
 	text-align: center;
-	border: 2px solid black;
-	height: 63px;
+	border: 1px solid black;
+	height: 80px;
 	margin-top: 10px;
+	background-color: #828282;
 }
 
 .header-2 {
@@ -114,14 +116,22 @@ input[type=submit] {
 }
 
 .header-nav {
+	background-color: #0C0C0C;
+	height: 32px;
+	color: red;
 	text-align: center;
-	background-color: rgb(189,0,33);
-	height: 13px;
 }
 
-.header-nav button{
+.header-nav h4{
 	font-size: 20px;
-	height: 35px;
+	margin-top: 4px;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.header-nav h4:hover {
+	font-size: 21px;
+	color: white;
 }
 
 .build {
