@@ -1,0 +1,77 @@
+<script type="text/template" id="school-page-template">
+  <div class="school-page" id="school-page-<%%= school.id %>">
+  	<div class="school-id" id="<%%= school.id %>"></div>
+		<div class="row school-header">
+			<section class="col-md-6 col-md-offset-3">
+				
+				<h2><%%= school.name %></h2>
+
+				<% if session['user_id'] %>
+
+					<%% if (_.where(currentUser.schools, {id: school.id })[0]) { %>
+						<h4 id="joined">Joined<h4>
+						<a class="leave-button"><h5>Leave</h5></a>
+					<%% } else { %>
+						<a class="join-button"><h4>Join<h4></a>
+					<%% }; %>
+
+
+
+				<% end %>
+
+				<label><h3>Styles</h3>
+					<%% _.each(school.styles, function(style){ %>
+						<h3 class="style-name"><%%= style.name %></h3>
+					<%% }); %>
+				</label>
+			</section>
+		</div>
+
+		<div class="row school-header-map">
+			<article class="col-md-4 col-md-offset-4 contact-info">
+				<div class="row">
+					<div id="map-canvas"></div>
+				</div>
+				
+				Phone:<h4><%%= school.phone_number %></h4>
+				Address:<h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
+				Email:<h4><%%= school.email %></h4>
+				Links:<h4><%%= school.site_link %></h4>
+				<h4><%%= school.facebook_link %></h4>
+				<h4><%%= school.twitter_link %></h4>
+				
+			</article>
+		</div>
+
+		<div class="row school-about">
+			<section class="col-md-10 col-md-offset-1">
+				<h1>About</h1>
+				<p><%%= school.description %></p>
+			</section>
+		</div>
+
+		<div class="row school-students">
+			<section class="col-md-10 col-md-offset-1 students-row">
+				<h1>Students</h1>
+
+				<div class="row students-row">
+					<%% _.each(school.users, function(user){ %>
+						<div class="col-sm-1">	
+							<img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3>
+						</div>
+					<%% }); %>
+				</div>
+			</section>
+		</div>
+
+		<div class="row school-followers">
+			<section class="col-md-10 col-md-offset-1">
+				<h1>Followers</h1>
+				<%% _.each(school.followers, function(follower){ %>
+					<h3><%%= User.find(follower.user_id).first_name %> <%%= User.find(follower.user_id).last_name %></h3>
+				<%% }); %>
+			</section>
+		</div>
+		
+	</div>
+</script>

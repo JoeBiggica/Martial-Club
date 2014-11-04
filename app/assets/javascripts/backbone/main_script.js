@@ -34,8 +34,7 @@ function usersInitialize(){
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
 	var usersListView = new MartialClub.Views.UserListView({
-		collection: usersCollection,
-		// 
+		collection: usersCollection, 
 	})
 	usersCollection.fetch();
 }
@@ -71,18 +70,18 @@ $(function(){
 
 	transform()
 	
-	// var AppRouter = Backbone.Router.extend({
-	// 	routes: {
-	// 		"schools": "schools",
-	// 		"school": "school"
-	// 	}
-	// });
+	var AppRouter = Backbone.Router.extend({
+		routes: {
+			"schools": "schools",
+			"school": "school"
+		}
+	});
 
-	// var router = new AppRouter;
-	// router.on('route:schools', function(){
-	// 		console.log('soos')
-	// 		schoolsInitialize();
-	// });
+	var router = new AppRouter;
+	router.on('route:schools', function(){
+			console.log('soos')
+			schoolsInitialize();
+	});
 
 
 

@@ -1,0 +1,48 @@
+<script type="text/template" id="user-page-template">
+  <div class="user-page" id="user-page-<%%= user.id %>">
+		<div class="row user-header">
+			<section class="col-md-3 col-md-offset-1">
+				<img src="<%%= user.profile_url %>" class="profile-pic-main">
+			</section>
+		
+
+			<section class="col-md-8">
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h2><%%= user.first_name %> <%%= user.last_name %><h2>
+					</div>
+					<div class="col-md-3 col-md-offset-3">
+						<i class="fa fa-cog fa-spin fa-3x edit-button"></i>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Styles:</h3>
+							<%% _.each(user.styles, function(style){ %>
+								<h4><%%= style.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Schools:</h3>
+							<%% _.each(user.schools, function(school){ %>
+								<h4><%%= school.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+				
+			</section>
+		</div>
+
+		<div class="row user-info">
+			<section class="col-md-3 col-md-offset-1">
+				<h3><%% user.email %></h3>
+			</section>
+		</div>			
+	</div>
+</script>

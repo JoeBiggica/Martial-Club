@@ -1,0 +1,20 @@
+<script id="schools-modal-template" type="text/template">
+	<div class="modal-header">
+
+		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+		<h4 class="modal-title" id="myModalLabel">Schools that teach this style</h4>
+
+		 <div class="modal-body">
+		 	<ul>
+		 		<div id="map-canvas-single"></div>
+				<%% _.each(schools, function(school){ %>
+					<li>
+						<h3><%%= school.name %></h3>
+						Address: <h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
+					</li>
+				<%% }); %>
+			</ul>
+		</div>
+	</div>
+</script>

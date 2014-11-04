@@ -1,0 +1,54 @@
+<script type="text/template" id="edit-user-template">
+  <div class="user-page" id="user-page-<%%= user.id %>">
+		<div class="row user-header">
+			<section class="col-md-3 col-md-offset-1">
+				<img src="<%%= user.profile_url %>" class="profile-pic-main"><br/>
+				<label><h4>Profile Picture URL</h4>
+					<input type="text" name="profile_url" value="<%%= user.profile_url %>">
+				</label>
+			</section>
+		
+
+			<section class="col-md-8">
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h4>First Name:</h4> 
+							<input type="text" name="first_name" value="<%%= user.first_name %>">
+						</label><br/>
+						<label><h4>Last Name:</h4> 
+							<input type="text" name="last_name" value="<%%= user.last_name %>">
+						</label><br/>
+					</div>
+					<div class="col-md-3 col-md-offset-3">
+						<i class="fa fa-check-circle fa-3x save-button"></i>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Styles:</h3>
+							<%% _.each(user.styles, function(style){ %>
+								<h4><%%= style.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<label><h3>Schools:</h3>
+							<%% _.each(user.schools, function(school){ %>
+								<h4><%%= school.name %></h4><br/>
+							<%% }); %>
+						</label>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="row user-info">
+			<section class="col-md-3 col-md-offset-1">
+				<h3><%% user.email %></h3>
+			</section>
+		</div>
+		
+	</div>
+</script>
