@@ -2,8 +2,9 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 
 function transform(){
+	var transformTemplate = _.template( $('#transform-template').html() );
 	$('.transform').empty();
-	$('.transform').html("<div class='row schools'><ul class='col-md-4 col-md-offset-2 schools-list'></ul></div><div class='row styles'><ul class='col-md-4 col-md-offset-8 styles-list'></ul></div><div class='row users'><ul class='col-md-4col-md-offset-1 users-list'></ul></div><div class='row search-results'></div>");	
+	$('.transform').html(transformTemplate);	
 }
 
 function schoolsInitialize(){
@@ -68,7 +69,8 @@ $.get('/users/?returnUser=true').done(function(response){
 $(function(){
 
 
-	transform()
+	transform();
+	$('.transform').html(_.template( $('#home-template').html() ));
 	
 	var AppRouter = Backbone.Router.extend({
 		routes: {
