@@ -1,30 +1,44 @@
 <script type="text/template" id="school-page-template">
   <div class="school-page" id="school-page-<%%= school.id %>">
   	<div class="school-id" id="<%%= school.id %>"></div>
-		<div class="row school-header">
-			<section class="col-md-6 col-md-offset-3">
-				
-				<h2><%%= school.name %></h2>
+  		<div class="school-header">
+			<div class="row">
+				<section class="col-md-6 col-md-offset-3">
+					
+					<h2><%%= school.name %></h2>
 
-				<% if session['user_id'] %>
+					<%% if (currentUser.id == school.user_id) { %>
 
-					<%% if (_.where(currentUser.schools, {id: school.id })[0]) { %>
-						<h4 id="joined">Joined<h4>
-						<a class="leave-button"><h5>Leave</h5></a>
-					<%% } else { %>
-						<a class="join-button"><h4>Join<h4></a>
 					<%% }; %>
 
+				</section>
+			</div>
 
+			<div class="row">
+				<section class="col-md-6 col-md-offset-3">
+					<% if session['user_id'] %>
 
-				<% end %>
+						<%% if (_.where(currentUser.schools, {id: school.id })[0]) { %>
+							<h4 id="joined">Joined<h4>
+							<a class="leave-button"><h5>Leave</h5></a>
+						<%% } else { %>
+							<a class="join-button"><h4>Join<h4></a>
+						<%% }; %>
 
-				<label><h3>Styles</h3>
-					<%% _.each(school.styles, function(style){ %>
-						<h3 class="style-name"><%%= style.name %></h3>
-					<%% }); %>
-				</label>
-			</section>
+					<% end %>
+
+				</section>
+			</div>
+
+			<div class="row">
+				<section class="col-md-6 col-md-offset-3">
+					<label><h3>Styles</h3>
+						<%% _.each(school.styles, function(style){ %>
+							<h3 class="style-name"><%%= style.name %></h3>
+						<%% }); %>
+					</label>
+				</section>
+			</div>
 		</div>
 
 		<div class="row school-header-map">
