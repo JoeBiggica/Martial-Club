@@ -118,7 +118,8 @@ input[type=submit] {
 	border: 1px solid black;
 	height: 80px;
 	margin-top: 10px;
-	background-color: #BDC0BA;
+	background: linear-gradient(#FFFFFB, #BDC0BA);
+	/*background-color: #BDC0BA;*/
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
 }
@@ -129,12 +130,13 @@ input[type=submit] {
 }
 
 .header-nav {
-	background-color: #0C0C0C;
+	background: linear-gradient(#434343, #1C1C1C);
 	height: 32px;
 	color: red;
 	text-align: center;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
+	box-shadow: 5px 10px 5px #888888;
 }
 
 .header-nav h4{

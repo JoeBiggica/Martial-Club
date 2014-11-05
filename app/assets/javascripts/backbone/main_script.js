@@ -93,6 +93,9 @@ $(function(){
 	var formView = new MartialClub.Views.FormView({ el: $('.add-school-form'), collection: schoolsCollection })
 	
 
+	$('.home-button').on('click', function(){
+		transform($('#home-template'));
+	})
 	$('.schools-button').on('click', function(){
 		// window.location.href = "/#schools";
 		schoolsInitialize();
@@ -134,7 +137,7 @@ var stylesCollection = new MartialClub.Collections.StyleCollection();
 
 	$('#search-bar').on('keyup', function(e) {
 		if (e.keyCode == 13) {
-			transform()
+			transform($('#transform-search-template'))
 			_.each(stylesCollection.models, function(model) {
 				
 				if ($('#search-bar').val() == model.attributes.name) {
