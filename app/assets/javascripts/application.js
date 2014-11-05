@@ -21,6 +21,8 @@
 
 //= require ./backbone/main_script
 
+//= require ./backbone/routers/AppRouter
+
 //= require ./backbone/models/SchoolModel
 //= require ./backbone/models/StyleModel
 //= require ./backbone/models/UserModel
@@ -40,5 +42,6 @@
 
 //= require ./backbone/views/FormView
 //= require ./backbone/views/SchoolsModalView
+
 
 

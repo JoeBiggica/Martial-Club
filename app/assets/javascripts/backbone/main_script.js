@@ -1,5 +1,14 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
+var AppRouter = Backbone.Router.extend({
+	routes : {
+		"/" : "root",
+		"schools" : "schools",
+		"styles" : "styles"
+	}
+});
+
+var router = new AppRouter();
 
 function transform(template){
 	var transformTemplate = _.template( template.html() );
@@ -69,22 +78,9 @@ $.get('/users/?returnUser=true').done(function(response){
 $(function(){
 
 
-	transform($('#home-template'));
+		transform($('#home-template'));
 	
-	var AppRouter = Backbone.Router.extend({
-		routes: {
-			"schools": "schools",
-			"school": "school"
-		}
-	});
-
-	var router = new AppRouter;
-	router.on('route:schools', function(){
-			console.log('soos')
-			schoolsInitialize();
-	});
-
-
+	
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
 	usersCollection.fetch();
@@ -95,9 +91,9 @@ $(function(){
 
 	$('.home-button').on('click', function(){
 		transform($('#home-template'));
-	})
+	});
+
 	$('.schools-button').on('click', function(){
-		// window.location.href = "/#schools";
 		schoolsInitialize();
 	});
 
@@ -120,8 +116,8 @@ $(function(){
 // 
 // Search Bar
 // 
-var schoolsCollection = new MartialClub.Collections.SchoolCollection();
-var stylesCollection = new MartialClub.Collections.StyleCollection();
+	var schoolsCollection = new MartialClub.Collections.SchoolCollection();
+	var stylesCollection = new MartialClub.Collections.StyleCollection();
 
 	searchArray = []
 	function autoComplete(searchBar) {
