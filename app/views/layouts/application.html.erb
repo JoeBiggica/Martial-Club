@@ -60,9 +60,11 @@
 						</div>
 					</div>
 				<% else %>
-					<%= form_tag("/login", method: "get") do %>
-		  				<%= submit_tag("Login") %>
-					<% end %>
+					<div class="col-sm-1 col-sm-offset-7" id="login">
+						<%= form_tag("/login", method: "get") do %>
+		  					<%= submit_tag("Login") %>
+						<% end %>
+					</div>
 				<% end %>
 			</section>
 
@@ -74,11 +76,14 @@
 				<h4 class="col-md-2 build-school" data-toggle="modal" data-target="#info">
 				  Build School
 				</h4>
+				<h4 class="col-md-2 col-md-offset-1 home-button">Home</h4>
+				<h4 class="col-md-2 schools-button">Schools</h4>
+				<h4 class="col-md-2 styles-button">Styles</h4>
+			<% else %>
+				<h4 class="col-md-2 col-md-offset-3 home-button">Home</h4>
+				<h4 class="col-md-2 schools-button">Schools</h4>
+				<h4 class="col-md-2 styles-button">Styles</h4>
 			<% end %>
-
-			<h4 class="col-md-2 col-md-offset-1 home-button">Home</h4>
-			<h4 class="col-md-2 schools-button">Schools</h4>
-			<h4 class="col-md-2 styles-button">Styles</h4>
 		</nav>
 
 <!--    Create-School Modal     -->
