@@ -90,7 +90,7 @@ i:hover {
 }
 
 .build-school {
-	margin-left: 45.333333%;
+
 }
 
 .fa-search {
@@ -119,6 +119,8 @@ input[type=submit] {
 	height: 80px;
 	margin-top: 10px;
 	background-color: #BDC0BA;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
 
 .header-2 {
@@ -131,6 +133,8 @@ input[type=submit] {
 	height: 32px;
 	color: red;
 	text-align: center;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 .header-nav h4{
@@ -141,8 +145,8 @@ input[type=submit] {
 }
 
 .header-nav h4:hover {
-	font-size: 21px;
-	color: white;
+	font-size: 20.5px;
+	color: #BDC0BA;
 }
 
 .build {

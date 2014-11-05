@@ -1,14 +1,14 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 
-function transform(){
-	var transformTemplate = _.template( $('#transform-template').html() );
+function transform(template){
+	var transformTemplate = _.template( template.html() );
 	$('.transform').empty();
 	$('.transform').html(transformTemplate);	
 }
 
 function schoolsInitialize(){
-	transform()
+	transform($('#transform-schools-template'))
 
 	var schoolsCollection = new MartialClub.Collections.SchoolCollection();
 	var schoolsListView = new MartialClub.Views.SchoolListView({
@@ -20,7 +20,7 @@ function schoolsInitialize(){
 }
 
 function stylesInitialize(){
-	transform()
+	transform($('#transform-styles-template'))
 
 	var stylesCollection = new MartialClub.Collections.StyleCollection();
 	var stylesListView = new MartialClub.Views.StyleListView({
@@ -31,7 +31,7 @@ function stylesInitialize(){
 }
 
 function usersInitialize(){
-	transform()
+	transform($('#transform-users-template'))
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
 	var usersListView = new MartialClub.Views.UserListView({
@@ -41,7 +41,7 @@ function usersInitialize(){
 }
 
 function getUser(){
-	transform()
+	transform($('#transform-users-template'))
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
 	usersCollection.fetch().done(function(){
@@ -69,8 +69,7 @@ $.get('/users/?returnUser=true').done(function(response){
 $(function(){
 
 
-	transform();
-	$('.transform').html(_.template( $('#home-template').html() ));
+	transform($('#home-template'));
 	
 	var AppRouter = Backbone.Router.extend({
 		routes: {

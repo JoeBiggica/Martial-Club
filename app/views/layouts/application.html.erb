@@ -5,15 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <%= render "templates/transform" %>
+  <%= render "templates/transform_schools_template" %>
+  <%= render "templates/transform_styles_template" %>
+  <%= render "templates/transform_users_template" %>
+  <%= render "templates/transform_search_template" %>
+  <%= render "templates/home_template" %>
+
   <%= render "templates/school_list_template" %>
   <%= render "templates/school_page_template" %>
   <%= render "templates/schools_modal_template" %>
+
   <%= render "templates/style_list_template" %>
+
   <%= render "templates/user_edit_template" %>
   <%= render "templates/user_list_template" %>
   <%= render "templates/user_page_template" %>
-  <%= render "templates/home_template" %>
+  
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -62,7 +69,14 @@
 		</div>
 		
 		<nav class="row header-nav">
-			<h4 class="col-md-2 col-md-offset-3 news-button">Home</h4>
+
+			<% if session["user_id"] %>
+				<h4 class="col-md-2 build-school" data-toggle="modal" data-target="#info">
+				  Build School
+				</h4>
+			<% end %>
+
+			<h4 class="col-md-2 col-md-offset-1 news-button">Home</h4>
 			<h4 class="col-md-2 schools-button">Schools</h4>
 			<h4 class="col-md-2 styles-button">Styles</h4>
 		</nav>
@@ -70,13 +84,7 @@
 <!--    Create-School Modal     -->
 <!--  					        -->
 <!--      				        -->
-		<% if session["user_id"] %>
-			<div class="row bulid">
-				<a class="col-md-3 build-school" data-toggle="modal" data-target="#info">
-				  Build School
-				</a>
-			</div>
-		<% end %>
+		
 
 		<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
