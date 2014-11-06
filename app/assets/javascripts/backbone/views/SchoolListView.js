@@ -15,7 +15,6 @@ MartialClub.Views.SchoolListView = Backbone.View.extend({
 		this.listenTo(this.collection, 'add', this.addOne);
 	},
 	addOne: function(item){
-
 		var school = new MartialClub.Views.SchoolView({ model: item })
 		school.render();
 		

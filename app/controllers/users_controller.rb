@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 			user = User.new(
 				email: params["signup_email"], 
 				password: params["signup_password"],
-				profile_url: "http://fc09.deviantart.net/fs71/f/2011/148/5/d/5d62446baab75b8a9898af496c480103-d3hfie9.jpg"
+				profile_url: "./default_profile_url.jpg"
 			)
 
 			if user.valid?

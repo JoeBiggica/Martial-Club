@@ -22,7 +22,8 @@ class SchoolsController < ApplicationController
 			site_link: params["site_link"],
 			facebook_link: params["facebook_link"],
 			twitter_link: params["twitter_link"],
-			user_id: session["user_id"]	
+			user_id: session["user_id"],	
+			logo_url: './fist_avatar.png'
 		})
 
 		new_style = params["new_style"]
@@ -63,7 +64,7 @@ class SchoolsController < ApplicationController
 	def update
 		school = School.find(params["id"])
 
-		school.update(
+		school.update({
 			name: params["name"],
 			country_of_origin: params["country_of_origin"],
 			phone_number: params["number"],
@@ -76,13 +77,18 @@ class SchoolsController < ApplicationController
 			state: params["state"],
 			zipcode: params["zipcode"],
 			logo_url: params["logo_url"]
-		)
+		})
 
-		params["styles"].each do |style|
-			style_id = Style.find_by(name: style["name"]).id
+		i = 0
+		while i < params["styles"].length do
+			binding.pry
+			school_style = UserSchoolStyle.find_by({style_id: params["styles"][i]["id"], school_id: school.id})
 
-			school_style = UserSchoolStyle.find_by({style_id: style_id, school_id: params["id"]})
-			school_style.destroy
+			if school_style
+				school_style.destroy
+			end
+
+			i += 1
 		end
 
 		new_style = params["style"]

@@ -101,7 +101,7 @@ var SchoolPageView = Backbone.View.extend({
 		var description = this.$el.find('input[name="description"]').val();
 		var lineage = this.$el.find('input[name="lineage"]').val();
 		var countryOfOrigin = this.$el.find('input[name="country_of_origin"]').val();
-		debugger
+
 		this.model.set('name', name);
 		this.model.set('style', style);
 		this.model.set('number', number);
@@ -120,9 +120,6 @@ var SchoolPageView = Backbone.View.extend({
 
 		this.$el.empty();
 		this.$el.html(this.schoolPageTemplate( { school: this.model.toJSON() }))
-
-		$('.style-name').empty()
-		$('.style-name').html(style)
 	},
 
 	render: function(){
