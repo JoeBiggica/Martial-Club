@@ -28,6 +28,7 @@ class SchoolsController < ApplicationController
 		new_style = params["new_style"]
 		
 		if new_style != ""
+			Style.create(name: new_style)
 			UserSchoolStyle.create({user_id: session["user_id"], style_id: Style.all.last.id + 1, school_id: school.id})			
 		else
 			existing_style = Style.find_by(name: params["style"])
@@ -60,7 +61,6 @@ class SchoolsController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		school = School.find(params["id"])
 
 		school.update(
@@ -87,15 +87,15 @@ class SchoolsController < ApplicationController
 
 		new_style = params["style"]
 
-		unless Style.find_by(name: params["style"])
-			Style.create(name: params["style"])
+		if Style.find_by(name: params["style"])
 			new_style_id = Style.find_by(name: params["style"]).id
-
 			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})
 
 		else
+			Style.create(name: params["style"])
 			new_style_id = Style.find_by(name: params["style"]).id
-			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})
+
+			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})	
 		end
 
 		respond_to do |format|
