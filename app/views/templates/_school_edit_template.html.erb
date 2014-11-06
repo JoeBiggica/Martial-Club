@@ -10,27 +10,9 @@
 				</section>
 
 				<section class="col-md-2 col-md-offset-1">
-					<%% if (currentUser.id == school.user_id) { %>
-						<i class="fa fa-check-circle fa-3x save-button"></i>
-					<%% }; %>
+					<i class="fa fa-check-circle fa-3x save-button"></i>
 				</section>
 
-			</div>
-
-			<div class="row">
-				<section class="col-md-6 col-md-offset-3">
-					<% if session['user_id'] %>
-
-						<%% if (_.where(currentUser.schools, {id: school.id })[0]) { %>
-							<h4 id="joined">Joined<h4>
-							<a class="leave-button"><h5>Leave</h5></a>
-						<%% } else { %>
-							<a class="join-button"><h4>Join<h4></a>
-						<%% }; %>
-
-					<% end %>
-
-				</section>
 			</div>
 
 			<div class="row">
@@ -56,11 +38,16 @@
 				Phone:
 				<h4><input type="text" name="phone_number" value="<%%= school.phone_number %>"></h4>
 				Address:
-				<h4 id="address"><input type="text" name="address" value="<%%= school.address %>"></h4>
+				<h4><input type="text" name="address" value="<%%= school.address %>"></h4>
 				City:
 				<h4><input type="text" name="city" value="<%%= school.city %>"></h4>
 				State:
 				<h4><input type="text" name="state" value="<%%= school.state %>"></h4>
+				Zipcode:
+				<h4><input type="text" name="zipcode" value="<%%= school.zipcode %>"></h4>
+
+				<hr>
+				
 				Email:
 				<h4><input type="text" name="email" value="<%%= school.email %>"></h4>
 				Site:

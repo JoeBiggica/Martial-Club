@@ -87,20 +87,37 @@ var SchoolPageView = Backbone.View.extend({
 	},
 
 	save: function(){
-		var firstName = this.$el.find('input[name="first_name"]').val();
-		var lastName = this.$el.find('input[name="last_name"]').val();
-		var profileURL = this.$el.find('input[name="profile_url"]').val();
+		var name = this.$el.find('input[name="name"]').val();
+		var style = this.$el.find('input[name="style"]').val();
+		var number = this.$el.find('input[name="phone_number"]').val();
+		var address = this.$el.find('input[name="address"]').val();
+		var city = this.$el.find('input[name="city"]').val();
+		var state = this.$el.find('input[name="state"]').val();
+		var zipcode = this.$el.find('input[name="zipcode"]').val();
+		var email = this.$el.find('input[name="email"]').val();
+		var site = this.$el.find('input[name="site_link"]').val();
+		var facebook = this.$el.find('input[name="facebook_link"]').val();
+		var twitter = this.$el.find('input[name="twitter_link"]').val();
+		var description = this.$el.find('input[name="description"]').val();
+		var lineage = this.$el.find('input[name="lineage"]').val();
 
-		this.model.set('first_name', firstName);
-		this.model.set('last_name', lastName);
-		this.model.set('profile_url', profileURL);
+		this.model.set('name', name);
+		this.model.set('style', style);
+		this.model.set('number', number);
+		this.model.set('address', address);
+		this.model.set('city', city);
+		this.model.set('state', state);
+		this.model.set('zipcode', zipcode);
+		this.model.set('email', email);
+		this.model.set('site', site);
+		this.model.set('facebook', facebook);
+		this.model.set('twitter', twitter);
+		this.model.set('description', description);
+		this.model.set('lineage', lineage);
 		this.model.save();
 
-		$('#login-name').html(firstName) 
-		$('.profile-pic-home').html(profileURL)
-
 		this.$el.empty();
-		this.$el.html(this.userPageTemplate( { user: this.model.toJSON() }))
+		this.$el.html(this.schoolPageTemplate( { user: this.model.toJSON() }))
 	},
 
 	render: function(){
