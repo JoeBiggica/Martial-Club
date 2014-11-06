@@ -47,7 +47,7 @@
 				<h4><input type="text" name="zipcode" value="<%%= school.zipcode %>"></h4>
 
 				<hr>
-				
+
 				Email:
 				<h4><input type="text" name="email" value="<%%= school.email %>"></h4>
 				Site:
@@ -61,6 +61,12 @@
 
 		<div class="row school-about">
 			<h1>About</h1>
+
+			<section class="row">
+				Country of Origin:<br/>
+				<input type="text" name="country_of_origin" value="<%%= school.country_of_origin %>"></input>
+			</section>
+
 			<section class="row">
 				Description:<br/>
 				<textarea name="description" cols="60" rows="10" value="<%%= school.description %>"></textarea>

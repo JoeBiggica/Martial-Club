@@ -48,21 +48,59 @@ class SchoolsController < ApplicationController
 			followers << User.find(f.user_id)
 		end
 
-		render(:show, {locals: { 
-			school: school, 
-			styles: styles, 
-			students: students, 
+		school_info = {
+			school: school,
+			styles: styles,
 			followers: followers
-		}})
-		# school_info = {
-		# 	school: school,
-		# 	styles: styles,
-		# 	followers: followers
-		# }
+		}
 
-		# respond_to do |format|
-  #   		format.json { render :json => school_info }
-		# end
+		respond_to do |format|
+    		format.json { render :json => school_info }
+		end
+	end
+
+	def update
+		binding.pry
+		school = School.find(params["id"])
+
+		school.update(
+			name: params["name"],
+			country_of_origin: params["country_of_origin"],
+			phone_number: params["number"],
+			email: params["email"],
+			site_link: params["site"],
+			facebook_link: params["facebook"],
+			twitter_link: params["twitter"],
+			address: params["address"],
+			city: params["city"],
+			state: params["state"],
+			zipcode: params["zipcode"],
+			logo_url: params["logo_url"]
+		)
+
+		params["styles"].each do |style|
+			style_id = Style.find_by(name: style["name"]).id
+
+			school_style = UserSchoolStyle.find_by({style_id: style_id, school_id: params["id"]})
+			school_style.destroy
+		end
+
+		new_style = params["style"]
+
+		unless Style.find_by(name: params["style"])
+			Style.create(name: params["style"])
+			new_style_id = Style.find_by(name: params["style"]).id
+
+			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})
+
+		else
+			new_style_id = Style.find_by(name: params["style"]).id
+			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})
+		end
+
+		respond_to do |format|
+    		format.json { render :json => school }
+		end
 	end
 
 

@@ -100,6 +100,7 @@ var SchoolPageView = Backbone.View.extend({
 		var twitter = this.$el.find('input[name="twitter_link"]').val();
 		var description = this.$el.find('input[name="description"]').val();
 		var lineage = this.$el.find('input[name="lineage"]').val();
+		var countryOfOrigin = this.$el.find('input[name="country_of_origin"]').val();
 
 		this.model.set('name', name);
 		this.model.set('style', style);
@@ -114,10 +115,11 @@ var SchoolPageView = Backbone.View.extend({
 		this.model.set('twitter', twitter);
 		this.model.set('description', description);
 		this.model.set('lineage', lineage);
+		this.model.set('country_of_origin', countryOfOrigin);
 		this.model.save();
 
 		this.$el.empty();
-		this.$el.html(this.schoolPageTemplate( { user: this.model.toJSON() }))
+		this.$el.html(this.schoolPageTemplate( { school: this.model.toJSON() }))
 	},
 
 	render: function(){
