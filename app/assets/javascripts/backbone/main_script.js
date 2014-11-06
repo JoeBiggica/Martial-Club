@@ -109,10 +109,6 @@ $(function(){
 		getUser()
 	})
 
-	$('.join-button').on('click', function(){
-		schoolsInitialize();
-	})
-
 // 
 // Search Bar
 // 

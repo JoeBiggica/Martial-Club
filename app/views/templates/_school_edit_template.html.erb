@@ -5,17 +5,13 @@
 			<div class="row">
 				<section class="col-md-6 col-md-offset-3">
 					
-					<h2><%%= school.name %></h2>
-
-					<%% if (currentUser.id == school.user_id) { %>
-						<%% console.log('MADE IT!!') %>
-					<%% }; %>
+					<h2><input type="text" name="name" value="<%%= school.name %>"></h2>
 
 				</section>
 
 				<section class="col-md-2 col-md-offset-1">
 					<%% if (currentUser.id == school.user_id) { %>
-						<i class="fa fa-cog fa-spin fa-3x edit-button"></i>
+						<i class="fa fa-check-circle fa-3x save-button"></i>
 					<%% }; %>
 				</section>
 
@@ -41,7 +37,7 @@
 				<section class="col-md-6 col-md-offset-3">
 					<label><h3>Styles</h3>
 						<%% _.each(school.styles, function(style){ %>
-							<h3 class="style-name"><%%= style.name %></h3>
+							<h3 class="style-name"><input type="text" name="style" value="<%%= style.name %>"</h3>
 						<%% }); %>
 					</label>
 				</section>
@@ -54,8 +50,14 @@
 					<div id="map-canvas"></div>
 				</div>
 				
-				Phone:<h4><%%= school.phone_number %></h4>
-				Address:<h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
+				Phone:
+				<h4><input type="text" name="phone_number" value="<h4><%%= school.phone_number %>"></h4>
+				Address:
+				<h4 id="address"><input type="text" name="address" value="<%%= school.address %>"></h4>
+				City:
+				<h4><input type="text" name="city" value="<%%= school.city %>"></h4>
+				State:
+				<h4><input type="text" name="state" value="<%%= school.state %>"></h4>
 				Email:<h4><%%= school.email %></h4>
 				Links:<h4><%%= school.site_link %></h4>
 				<h4><%%= school.facebook_link %></h4>

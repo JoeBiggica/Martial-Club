@@ -33,8 +33,8 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 var SchoolPageView = Backbone.View.extend({
 	initialize: function() {
-		this.listenTo( this.model, "change", this.render );
-		this.listenTo( this.model, "destroy", this.remove );
+		// this.listenTo( this.model, "change", this.render );
+		// this.listenTo( this.model, "destroy", this.remove );
 	},
 
 	schoolPageTemplate: _.template( $('#school-page-template').html() ),
@@ -48,11 +48,10 @@ var SchoolPageView = Backbone.View.extend({
 	},
 
 	join: function(){
-		debugger
 		var schoolId = this.model.id
 		var userId = currentUser.id
 		var style = this.model.attributes.styles[0].name
-
+		
 		memberships.fetch().done(function() {
 			memberships.create({
 				user_id: userId,
@@ -64,7 +63,7 @@ var SchoolPageView = Backbone.View.extend({
 
 
 		$('.join-button').empty();
-		$('.user-school-status').append('<h4 id="joined">Joined<h4><a class="leave-button"><h5>Leave</h5></a>');
+		// $('.user-school-status').append('<h4 id="joined">Joined<h4><a class="leave-button"><h5>Leave</h5></a>');
 	},
 
 	leave: function(){
@@ -76,8 +75,9 @@ var SchoolPageView = Backbone.View.extend({
 			membership.destroy();
 		})
 
-		$('.leave-button').destroy();
-		$('.user-school-status').append('<a class="join-button"><h4>Join<h4></a>');
+		$('.leave-button').empty();
+		$('#joined').empty();
+		// $('.user-school-status').append('<a class="join-button"><h4>Join<h4></a>');
 	},
 
 	edit: function(){
