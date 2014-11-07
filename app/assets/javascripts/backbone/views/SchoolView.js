@@ -101,6 +101,7 @@ var SchoolPageView = Backbone.View.extend({
 		var description = this.$el.find('input[name="description"]').val();
 		var lineage = this.$el.find('input[name="lineage"]').val();
 		var countryOfOrigin = this.$el.find('input[name="country_of_origin"]').val();
+		var logoURL = this.$el.find('input[name="logo-url"]').val();
 
 		this.model.set('name', name);
 		this.model.set('style', style);
@@ -116,6 +117,7 @@ var SchoolPageView = Backbone.View.extend({
 		this.model.set('description', description);
 		this.model.set('lineage', lineage);
 		this.model.set('country_of_origin', countryOfOrigin);
+		this.model.set('logo_url', logoURL);
 		this.model.save();
 
 		this.$el.empty();

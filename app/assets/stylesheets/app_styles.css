@@ -24,6 +24,7 @@
 
 li {
 	cursor: pointer;
+	list-style-type: none;
 }
 
 img {
@@ -169,14 +170,14 @@ input[type=submit] {
 
 .school-header {
 	text-align: center;
-	background: linear-gradient(#BDC0BA, #1C1C1C);
-	margin-bottom: 10px;
+	background: linear-gradient(#434343, #1C1C1C);
+	margin-bottom: 22px;
 	margin-top: 30px;
 	border-radius: 10px;
 }
 
 #school-name {
-	background-color: #FFFFFB;
+	background: linear-gradient(#FFFFFB, #BDC0BA);
 	border-radius: 10px;
 	font-size: 300%;
 }
@@ -239,26 +240,42 @@ input[type=submit] {
 }
 
 .styles-area {
-	background-color: #FFFFFB;
-	border-radius: 10px;
-	font-size: 300%;
+	color: white;
+}
+
+.style-title {
+	font-size: 220%;
+}
+
+.style-name {
+	font-size: 185%;
 }
 
 .contact-info {
 	text-align: center;
 }
 
+.contact-area {
+	border: 2px solid black;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
 #map-canvas {
-	 border-radius: 10px;
-	 height: 300px;
-	 margin: 0 auto;
+	border-radius: 10px;
+	height: 300px;
+	margin-right: -108%;
+	margin-left: -108%;
 }
 
 .school-about {
 	min-height: 175px;
 	text-align: center;
-	background-color: #D7C4BB;
-	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: #434343;
+	font-size: 140%;
+	color: white;
 }
 
 .school-students {
@@ -266,7 +283,9 @@ input[type=submit] {
 	text-align: center;
 	color: white;
 	background-color: rgb(189,0,33);
-	margin-bottom: 10px;
+	margin-bottom: 2%;
+	margin-top: 2%;
+	border-radius: 10px;
 }
 
 
@@ -275,7 +294,8 @@ input[type=submit] {
 	text-align: center;
 	color: white;
 	background-color: rgb(189,0,33);
-	margin-bottom: 10px;
+	margin-bottom: 10%;
+	border-radius: 10px;
 }
 
 .students-row {
@@ -283,6 +303,21 @@ input[type=submit] {
 	margin: 0 auto;
 }
 
+.student-list {
+    background: linear-gradient(#434343, #1C1C1C);
+    border-radius: 10px;
+    padding: 0;
+}
+
+.student-list li {
+	display: inline-block;
+	margin-top: 1%;
+}
+
+.student-list h3 {
+	margin-top: 0;
+	margin-bottom: 10%;
+}
 .students-row img {
 	height: 50px;
 }
