@@ -10,7 +10,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	template: _.template( $('#style-list-template').html() ),
 
 	events: {
-		"click a.style-name" : "seeSchools",
+		"click a.style-item" : "seeSchools",
 	},
 
 	seeSchools: function() {
