@@ -41,8 +41,8 @@ var SchoolPageView = Backbone.View.extend({
 	schoolEditTemplate: _.template( $('#school-edit-template').html() ),
 
 	events: {
-		"click a.join-button" : "join",
-		"click a.leave-button" : "leave",
+		"click h4.join-button" : "join",
+		"click h5.leave-button" : "leave",
 		"click i.edit-button" : "edit",
 		"click i.save-button" : "save",
 	},

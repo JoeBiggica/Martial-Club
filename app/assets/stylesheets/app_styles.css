@@ -169,8 +169,79 @@ input[type=submit] {
 
 .school-header {
 	text-align: center;
-	background-color: #D7C4BB;
+	background: linear-gradient(#BDC0BA, #1C1C1C);
 	margin-bottom: 10px;
+	margin-top: 30px;
+	border-radius: 10px;
+}
+
+#school-name {
+	background-color: #FFFFFB;
+	border-radius: 10px;
+	font-size: 300%;
+}
+
+.school-logo {
+	text-align: center;
+}
+
+.logo {
+	height: 275px;
+	margin-top: 40px;
+	border-radius: 50%;
+	border: 5px solid #1C1C1C;
+}
+
+.join-button {
+	border-radius: 5px;
+	border: 1px solid #1C1C1C;
+    background: linear-gradient(#CB4042, rgb(189,0,33));
+	margin-right: 20%;
+	margin-left: 20%;
+	font-size: 160%;
+	cursor: pointer;
+	color: white
+}
+
+.join-button:hover {
+	font-size: 165%;
+	background: white;
+	color: rgb(189,0,33);
+}
+
+.leave-area {
+	border-radius: 10px;
+	border: 1px solid #1C1C1C;
+    background: linear-gradient(#CB4042, rgb(189,0,33));
+	margin-right: 20%;
+	margin-left: 20%;
+	margin-top: 20px;
+}
+
+#joined {
+	font-size: 160%;
+}
+
+.leave-button {
+	border-radius: 5px;
+	background: #1C1C1C;
+	margin-right: 15%;
+	margin-left: 15%;
+	font-size: 120%;
+	color: white;
+	cursor: pointer;
+}
+
+.leave-button:hover {
+	font-size: 125%;
+	background: white;
+	color: rgb(189,0,33);
+}
+
+.styles-area {
+	background-color: #FFFFFB;
+	border-radius: 10px;
+	font-size: 300%;
 }
 
 .contact-info {
