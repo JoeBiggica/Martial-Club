@@ -1,3 +1,4 @@
+
 .login-body {
 	background-image: url('./login_wallpaper.jpg');
 	background-size: 100%;
@@ -332,6 +333,18 @@ input[type=submit] {
 	list-style-type: none;
 }
 
+.edit-school {
+	color: white;
+}
 
+.save-school {
+	color: white;
+}
 
+.edit-button {
+	margin-top: 10%;
+}
 
+.save-button {
+	margin-top: 10%;
+}

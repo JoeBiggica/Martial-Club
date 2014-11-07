@@ -98,8 +98,8 @@ var SchoolPageView = Backbone.View.extend({
 		var site = this.$el.find('input[name="site_link"]').val();
 		var facebook = this.$el.find('input[name="facebook_link"]').val();
 		var twitter = this.$el.find('input[name="twitter_link"]').val();
-		var description = this.$el.find('input[name="description"]').val();
-		var lineage = this.$el.find('input[name="lineage"]').val();
+		var description = this.$el.find('textarea[name="description"]').val();
+		var lineage = this.$el.find('textarea[name="lineage"]').val();
 		var countryOfOrigin = this.$el.find('input[name="country_of_origin"]').val();
 		var logoURL = this.$el.find('input[name="logo-url"]').val();
 

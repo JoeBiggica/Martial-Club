@@ -81,7 +81,6 @@ class SchoolsController < ApplicationController
 
 		i = 0
 		while i < params["styles"].length do
-			binding.pry
 			school_style = UserSchoolStyle.find_by({style_id: params["styles"][i]["id"], school_id: school.id})
 
 			if school_style

@@ -12,18 +12,14 @@
   		<div class="school-header">
 			<div class="row">
 
-				<section class="col-md-6 col-md-offset-1">
+				<section class="col-md-6 col-md-offset-3">
 					
-					<h2 id="school-name"><%%= school.name %></h2>
+					<h2><input type="text" name="name" value="<%%= school.name %>"></h2>
 
 				</section>
 
 				<section class="col-md-2 col-md-offset-1">
-					<%% if (currentUser) { %>
-						<%% if (currentUser.id == school.user_id) { %>
-							<i class="fa fa-cog fa-spin fa-3x edit-button"></i>
-						<%% }; %>
-					<%% }; %>
+					<i class="fa fa-check-circle-o fa-3x save-button save-school"></i>
 				</section>
 
 				
@@ -33,29 +29,32 @@
 				<section class="col-md-2 col-md-offset-5 styles-area">
 					<label><h3 class="style-title">Styles</h3>
 						<%% _.each(school.styles, function(style){ %>
-							<i class="style-name"><%%= style.name %></i>
+							<i class="style-name"><input type="text" name="style" value="<%%= style.name %>"</i>
 						<%% }); %>
 					</label>
 				</section>
 			</div>
 		</div>
 
-		<div class="row school-header-map">
-			<section class="col-md-4 col-md-offset-4 school-map">
-				<div id="map-canvas"></div>
-			</section>
-		</div>
-
 		<div class="row contact-info">
 				
 			<section class="col-md-4 col-md-offset-4 contact-info">
 				<div class="contact-area">
-					<h3>Phone:</h3><h4><%%= school.phone_number %></h4>
-					<h3>Address:</h3><h4 id="address"><%%= school.address %> <%%= school.city %>, <%%= school.state %></h4>
-					<h3>Email:</h3><h4><%%= school.email %></h4>
-					<h3>Links:</h3><h4><%%= school.site_link %></h4>
-					<h4><%%= school.facebook_link %></h4>
-					<h4><%%= school.twitter_link %></h4>
+					<h3>Phone:</h3><h4><input type="text" name="phone_number" value="<%%= school.phone_number %>"></h4>
+					<h3>Address:</h3><input type="text" name="address" value="<%%= school.address %>"></h4>
+					<h3>City:</h3><input type="text" name="city" value="<%%= school.city %>"></h4>
+					<h3>State:</h3><input type="text" name="state" value="<%%= school.state %>"></h4>
+					<h3>Zipcode:</h3><input type="text" name="address" value="<%%= school.zipcode %>"></h4>
+
+					<hr>
+
+					<h3>Email:</h3><input type="text" name="email" value="<%%= school.email %>"></h4>
+					<h3>Site:</h3>
+					<h4><input type="text" name="site_link" value="<%%= school.site_link %>"></h4>
+					<h3>Facebook:</h3>
+					<h4><input type="text" name="facebook_link" value="<%%= school.facebook_link %>"></h4>
+					<h3>Twitter:</h3>
+					<h4><input type="text" name="twitter_link" value="<%%= school.twitter_link %>"></h4>
 				</div>
 			</section>
 		</div>
@@ -63,7 +62,22 @@
 		<div class="row school-about">
 			<section class="col-md-10 col-md-offset-1">
 				<h1>About</h1>
-				<p><%%= school.description %></p>
+
+				<section class="row">
+					Country of Origin:<br/>
+					<input type="text" name="country_of_origin" value="<%%= school.country_of_origin %>"></input>
+				</section>
+
+				<section class="row">
+					Description:<br/>
+					<textarea name="description" cols="60" rows="10" value="<%%= school.description %>"></textarea>
+				</section>
+
+				<section class="row">
+					Lineage:<br/>
+					<textarea name="lineage" cols="60" rows="10" value="<%%= school.lineage %>"></textarea>
+				</section>
+
 			</section>
 		</div>
 
@@ -86,118 +100,3 @@
 </script>
 
 
-// 
-// 
-// 
-  <div class="school-page" id="school-page-<%%= school.id %>">
-  	<div class="school-id" id="<%%= school.id %>"></div>
-
-  		<div class="school-logo">
-  			<div class="row">
-  				<img src="<%%= school.logo_url %>" class="logo">
-  				<h3><input type="text" name="logo-url" value="<%%= school.logo_url %>"></h3>
-  			</div>
-  		</div>
-
-  		<div class="school-header">
-			<div class="row">
-				<section class="col-md-6 col-md-offset-3">
-					
-					<h2><input type="text" name="name" value="<%%= school.name %>"></h2>
-
-				</section>
-
-				<section class="col-md-2 col-md-offset-1">
-					<i class="fa fa-check-circle fa-3x save-button"></i>
-				</section>
-
-			</div>
-
-			<div class="row">
-				<section class="col-md-6 col-md-offset-3">
-					<label><h3>Styles</h3>
-						<%% _.each(school.styles, function(style){ %>
-							<h3 class="style-name"><input type="text" name="style" value="<%%= style.name %>"</h3>
-						<%% }); %>
-					</label>
-				</section>
-			</div>
-		</div>
-
-		<div class="row school-header-map">
-			<section class="col-md-4 col-md-offset-4 school-map">
-				<div id="map-canvas"></div>
-			</section>
-		</div>
-
-		<div class="row contact-info"
-				
-			<section class="col-md-4 col-md-offset-4 contact-info">
-				Phone:
-				<h4><input type="text" name="phone_number" value="<%%= school.phone_number %>"></h4>
-				Address:
-				<h4><input type="text" name="address" value="<%%= school.address %>"></h4>
-				City:
-				<h4><input type="text" name="city" value="<%%= school.city %>"></h4>
-				State:
-				<h4><input type="text" name="state" value="<%%= school.state %>"></h4>
-				Zipcode:
-				<h4><input type="text" name="zipcode" value="<%%= school.zipcode %>"></h4>
-
-				<hr>
-
-				Email:
-				<h4><input type="text" name="email" value="<%%= school.email %>"></h4>
-				Site:
-				<h4><input type="text" name="site_link" value="<%%= school.site_link %>"></h4>
-				Facebook:
-				<h4><input type="text" name="facebook_link" value="<%%= school.facebook_link %>"></h4>
-				Twitter
-				<h4><input type="text" name="twitter_link" value="<%%= school.twitter_link %>"></h4>	
-			</section>
-		</div>
-
-		<div class="row school-about">
-			<h1>About</h1>
-
-			<section class="row">
-				Country of Origin:<br/>
-				<input type="text" name="country_of_origin" value="<%%= school.country_of_origin %>"></input>
-			</section>
-
-			<section class="row">
-				Description:<br/>
-				<textarea name="description" cols="60" rows="10" value="<%%= school.description %>"></textarea>
-			</section>
-
-			<section class="row">
-				Lineage:<br/>
-				<textarea name="lineage" cols="60" rows="10" value="<%%= school.lineage %>"></textarea>
-			</section>
-		</div>
-
-		<div class="row school-students">
-			<section class="col-md-10 col-md-offset-1 students-row">
-				<h1>Students</h1>
-
-				<div class="row students-row">
-					<%% _.each(school.users, function(user){ %>
-						<div class="col-sm-1">	
-							<img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3>
-						</div>
-					<%% }); %>
-				</div>
-			</section>
-		</div>
-
-		<div class="row school-followers">
-			<section class="col-md-10 col-md-offset-1">
-				<h1>Followers</h1>
-				<%% _.each(school.followers, function(follower){ %>
-					<h3><%%= User.find(follower.user_id).first_name %> <%%= User.find(follower.user_id).last_name %></h3>
-				<%% }); %>
-			</section>
-		</div>
-		
-	</div>
-</script>
