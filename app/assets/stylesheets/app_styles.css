@@ -35,7 +35,7 @@ img {
 a {
 	cursor: pointer;
 	text-decoration: none;
-	color: black
+	color: black;
 }
 
 a:link {
@@ -151,10 +151,6 @@ input[type=submit] {
 .header-nav h4:hover {
 	font-size: 20.5px;
 	color: #BDC0BA;
-}
-
-.build {
-	
 }
 
 .schools-list {
