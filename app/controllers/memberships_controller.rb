@@ -8,6 +8,7 @@ class MembershipsController < ApplicationController
 	end
 
 	def create
+
 		membership = Membership.create({user_id: params["user_id"], school_id: params["school_id"]})
 
 		style = Style.find_by(name: params["style"])

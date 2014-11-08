@@ -20,7 +20,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 	seeSchool: function() {	
 		$('.transform').empty();
-		var schoolPage = new SchoolPageView({ model: this.model, el: $('.transform')});
+		var schoolPage = new MartialClub.Views.SchoolPageView({ model: this.model, el: $('.transform')});
 		schoolPage.render();
 	},
 
@@ -31,10 +31,10 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 	
 });
 
-var SchoolPageView = Backbone.View.extend({
+MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
-		// this.listenTo( this.model, "change", this.render );
-		// this.listenTo( this.model, "destroy", this.remove );
+		this.listenTo( this.model, "change", this.render );
+		this.listenTo( this.model, "destroy", this.remove );
 	},
 
 	schoolPageTemplate: _.template( $('#school-page-template').html() ),
@@ -48,25 +48,23 @@ var SchoolPageView = Backbone.View.extend({
 	},
 
 	join: function(){
+		console.log('click')
 		var schoolId = this.model.id
 		var userId = currentUser.id
 		var style = this.model.attributes.styles[0].name
 		
-		memberships.fetch().done(function() {
-			memberships.create({
-				user_id: userId,
-				school_id: schoolId,
-				style: style
-			});
+		memberships.create({
+			user_id: userId,
+			school_id: schoolId,
+			style: style,
 		});
-
-
 
 		$('.join-button').empty();
 		// $('.user-school-status').append('<h4 id="joined">Joined<h4><a class="leave-button"><h5>Leave</h5></a>');
 	},
 
 	leave: function(){
+		console.log('click')
 		var schoolId = this.model.id
 		var userId = currentUser.id
 
@@ -125,7 +123,7 @@ var SchoolPageView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.empty()
+		this.$el.empty();
 		this.$el.html(this.schoolPageTemplate( { school: this.model.toJSON() }));
 
 		var geocoder = new google.maps.Geocoder();
