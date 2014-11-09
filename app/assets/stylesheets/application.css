@@ -14,7 +14,7 @@
  *= require_self
  *= require font-awesome
  *= require ./app_styles
- *= require spacelab.min.css
+ * require spacelab.min.css
  */
 
 

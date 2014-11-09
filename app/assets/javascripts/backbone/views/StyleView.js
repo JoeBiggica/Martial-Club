@@ -15,6 +15,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 
 	seeSchools: function() {
 		var schoolWithStyle = this.model.attributes.schools
+		debugger
 		var modal = new MartialClub.Views.SchoolsModalView({ model: schoolWithStyle })
 	},
 
@@ -29,3 +30,4 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	},
 
 });
+

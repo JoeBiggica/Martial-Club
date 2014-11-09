@@ -157,12 +157,18 @@ input[type=submit] {
 	text-decoration: none;
 	list-style-type: none;
 	font-size: 20px;
+	margin-top: 2%;
+}
+
+.schools-list li {
+	
 }
 
 .styles-list {
 	text-decoration: none;
 	list-style-type: none;
 	font-size: 20px;
+	margin-top: 2%;
 }
 
 .school-header {
