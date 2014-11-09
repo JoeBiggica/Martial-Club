@@ -6,18 +6,8 @@
 		<h4 class="modal-title" id="myModalLabel">Schools that teach this style</h4>
 
 		 <div class="modal-body">
-		 	<ul>
-		 		<div id="map-canvas-single"></div>
-				<%% _.each(schools, function(school){ %>
-					<li>
-						<%% var school = new MartialClub.Views.SchoolView({ model: school }) %>
-						<%% school.render() %>
-						<%% var schoolAttr = school.model.attributes %>
-						<%% debugger %>
-						<h3 class='school-link'><%%= school.el %></h3>
-						Address: <h4 id="address"><%%= schoolAttr.address %> <%%= schoolAttr.city %>, <%%= schoolAttr.state %></h4>
-					</li>
-				<%% }); %>
+		 	<ul class="style-schools-list">
+		 		
 			</ul>
 		</div>
 	</div>

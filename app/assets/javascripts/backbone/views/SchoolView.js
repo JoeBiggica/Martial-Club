@@ -22,7 +22,8 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 		$('.transform').empty();
 		var schoolPage = new MartialClub.Views.SchoolPageView({ model: this.model, el: $('.transform')});
 		schoolPage.render();
-		
+
+		$('#style-info').modal('hide')
 	},
 
 	render: function(){
