@@ -42,7 +42,6 @@
 
 //= require ./backbone/views/FormView
 //= require ./backbone/views/SchoolsModalView
-//= require ./backbone/views/SchoolModalListView
 
 
 

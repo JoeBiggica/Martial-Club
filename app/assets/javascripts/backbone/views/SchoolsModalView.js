@@ -10,16 +10,18 @@ MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 
 	render: function(){
 		
-		
 		var template = this.modalTemplate();
 	   	this.$el.html(template);
 		$('.modal-content').last().empty()
 	   	$('.modal-content').last().append(this.$el);
 
+		$('.modal-title').append('Schools that teach ')
+
 		_.each(this.model, function(item) {
 			var school = new MartialClub.Views.SchoolView({ model: item })
 			school.render()
 			$('.style-schools-list').append(school.el)
+			$('.style-schools-list').append(school.model.attributes.address + ' ' + school.model.attributes.city + ', ' + school.model.attributes.state + '<br/><br/>')
 		})
 
 

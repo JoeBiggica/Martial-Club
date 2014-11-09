@@ -29,10 +29,6 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	render: function(){
 		this.$el.empty();
 		this.$el.html(this.template( { style: this.model.toJSON() }));
-		// var school = this.$el.html('<a>' + this.model.attributes.name + '</a>')[0]
-		// school.className = 'school-name'
-		// school.id = 'school-' + this.model.attributes.id
-		// $('.schools-list').append(school)
 
 	},
 
