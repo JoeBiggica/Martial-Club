@@ -92,7 +92,7 @@
 				<div class="row students-row">
 					<ul class="student-list">
 						<%% _.each(school.users, function(user){ %>
-							<li><img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3></li>
+							<li class="students-item"><img src="<%%= user.profile_url %>"><h3> <%%= user.first_name %></h3></li>
 						<%% }); %>
 					</ul>
 				</div>

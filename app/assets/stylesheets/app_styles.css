@@ -101,7 +101,7 @@ i:hover {
 }
 
 .profile-pic-home {
-	height: 36px;
+	height: 10%;
 	padding: 0;
 	margin-top: 7%;
 	margin-right: -8%;
@@ -169,7 +169,14 @@ input[type=submit] {
 }
 
 .schools-list li {
-	
+
+}
+
+.school-list-logo {
+	height: 100px;
+	width: 100px;
+	border-radius: 10px;
+	border: 2px solid black;
 }
 
 .styles-list {
@@ -198,10 +205,11 @@ input[type=submit] {
 }
 
 .logo {
-	height: 275px;
+	height: 300px;
+	width: 300px;
 	margin-top: 40px;
-	border-radius: 50%;
-	border: 5px solid #1C1C1C;
+	border-radius: 22px;
+	border: 3px solid black;
 	box-shadow: 5px 15px 5px #888888;
 }
 
@@ -332,6 +340,12 @@ input[type=submit] {
 }
 .students-row img {
 	height: 50px;
+	width: 50px;
+}
+
+.students-item {
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .search-results {

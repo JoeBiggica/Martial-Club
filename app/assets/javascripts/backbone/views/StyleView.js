@@ -3,6 +3,8 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 MartialClub.Views.StyleView = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo( this.model, "change", this.render );
+		this.listenTo( this.model, "change:[attribute]", this.render );
+		this.listenTo( this.model, "add", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
 

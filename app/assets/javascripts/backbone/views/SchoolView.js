@@ -6,6 +6,8 @@ var styles
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo( this.model, "change", this.render );
+		this.listenTo( this.model, "change:[attribute]", this.render );
+		this.listenTo( this.model, "add", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
 
@@ -16,6 +18,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 	events: {
 		"click a.school-name" : "seeSchool",
+		"click img.school-list-logo" : "seeSchool",
 	},
 
 	seeSchool: function() {	
