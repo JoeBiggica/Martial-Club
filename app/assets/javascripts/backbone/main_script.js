@@ -61,8 +61,7 @@ function getUser(){
 }
 var currentUser;
 $.get('/users/?returnUser=true').done(function(response){
-	 currentUser = response
-	console.log('soos')
+	currentUser = response
 })
 
 $(function(){
@@ -90,6 +89,11 @@ $(function(){
 	
 
 	$('.home-button').on('click', function(){
+		Backbone.history.navigate('', {trigger: true})
+		transform($('#home-template'));
+	});
+
+	$('#logo-corner').on('click', function(){
 		Backbone.history.navigate('', {trigger: true})
 		transform($('#home-template'));
 	});
