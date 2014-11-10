@@ -4,10 +4,10 @@ MartialClub.Routers.AppRouter = Backbone.Router.extend({
 	routes : {
 		""                : "home",
 		"schools"         : "schools",
-		"schools/:id"     : "schoolsShow",
+		"schools/:name"     : "schoolsShow",
 		"schools/create"  : "schoolsPost",
 		"styles"		  : "styles",
-		"styles/:id"	  : "stylesShow",
+		"styles/:name"	  : "stylesShow",
 	},
 
 	initialize: function () {

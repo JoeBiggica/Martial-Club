@@ -91,11 +91,10 @@ class SchoolsController < ApplicationController
 		end
 
 		new_style = params["style"]
-
+		binding.pry
 		if Style.find_by(name: params["style"])
 			new_style_id = Style.find_by(name: params["style"]).id
 			UserSchoolStyle.create({style_id: new_style_id, school_id: params["id"]})
-
 		else
 			Style.create(name: params["style"])
 			new_style_id = Style.find_by(name: params["style"]).id
