@@ -14,6 +14,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	},
 
 	seeSchools: function() {
+		Backbone.history.navigate('styles/' + this.model.attributes.name, {trigger: true});
 		var schoolWithStyle = this.model.attributes.schools
 
 		var schoolModel = []

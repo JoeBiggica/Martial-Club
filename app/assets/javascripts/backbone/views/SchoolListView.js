@@ -1,7 +1,5 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
-var router = new MartialClub.Routers.AppRouter;
-
 MartialClub.Views.SchoolListView = Backbone.View.extend({
 	initialize: function(){
 		Backbone.history.navigate('schools', {trigger: true});

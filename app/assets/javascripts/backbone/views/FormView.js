@@ -4,6 +4,10 @@ var schoolsCollection = new MartialClub.Collections.SchoolCollection();
 var stylesCollection = new MartialClub.Collections.StyleCollection();
 
 MartialClub.Views.FormView = Backbone.View.extend({
+	initialize: function() {
+		Backbone.history.navigate('schools/create', {trigger: true});
+	},
+
 	events: {
 		"click button#add-school" : "createSchool",
 	},

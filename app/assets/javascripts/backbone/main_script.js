@@ -72,6 +72,14 @@ $(function(){
 	router.on('route:home', function() {
        transform($('#home-template'));
     });
+
+    router.on('route:schools', function() {
+    	schoolsInitialize();
+    });
+
+    router.on('route:styles', function() {
+    	stylesInitialize();
+    });
 	
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
@@ -82,6 +90,7 @@ $(function(){
 	
 
 	$('.home-button').on('click', function(){
+		Backbone.history.navigate('', {trigger: true})
 		transform($('#home-template'));
 	});
 

@@ -202,6 +202,7 @@ input[type=submit] {
 	margin-top: 40px;
 	border-radius: 50%;
 	border: 5px solid #1C1C1C;
+	box-shadow: 5px 15px 5px #888888;
 }
 
 .join-button {
