@@ -1,14 +1,4 @@
-var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
-
-var AppRouter = Backbone.Router.extend({
-	routes : {
-		"/" : "root",
-		"schools" : "schools",
-		"styles" : "styles"
-	}
-});
-
-var router = new AppRouter();
+var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {}, Routers: {} };
 
 function transform(template){
 	var transformTemplate = _.template( template.html() );
@@ -77,9 +67,11 @@ $.get('/users/?returnUser=true').done(function(response){
 
 $(function(){
 
+	router = new MartialClub.Routers.AppRouter;
 
-		transform($('#home-template'));
-	
+	router.on('route:home', function() {
+       transform($('#home-template'));
+    });
 	
 
 	var usersCollection = new MartialClub.Collections.UserCollection();

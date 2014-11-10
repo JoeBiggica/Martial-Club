@@ -1,5 +1,7 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
+router = new MartialClub.Routers.AppRouter
+
 MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 	modalTemplate: _.template( $('#schools-modal-template').html() ),
 	
