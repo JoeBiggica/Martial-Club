@@ -6,7 +6,7 @@ var styles
 
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
-		this.delegateEvents();
+		this.undelegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
@@ -34,12 +34,14 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 	render: function(){
 		this.$el.empty();
 		this.$el.html(this.template( { school: this.model.toJSON() }));
+		this.delegateEvents();
 	},
 	
 });
 
 MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
+		this.undelegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},

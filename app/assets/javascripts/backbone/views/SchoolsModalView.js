@@ -4,6 +4,7 @@ MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 	modalTemplate: _.template( $('#schools-modal-template').html() ),
 	
 	initialize: function(){
+		this.undelegateEvents();
 		this.render();
 	},
 

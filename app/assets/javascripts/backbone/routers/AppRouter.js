@@ -6,8 +6,9 @@ MartialClub.Routers.AppRouter = Backbone.Router.extend({
 		"schools"         : "schools",
 		"schools/:name"   : "schoolsShow",
 		"schools/create"  : "schoolsPost",
-		"styles"		  		: "styles",
+		"styles"		  : "styles",
 		"styles/:name"	  : "stylesShow",
+		"user/:name"	  : "userShow",
 	},
 
 	// schoolsShow:function () {

@@ -32,6 +32,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	},
 
 	render: function(){
+		this.delegateEvents();
 		this.$el.empty();
 		this.$el.html(this.template( { style: this.model.toJSON() }));
 

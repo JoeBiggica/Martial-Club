@@ -101,7 +101,7 @@ i:hover {
 }
 
 .profile-pic-home {
-	height: 10%;
+	height: 40px;
 	padding: 0;
 	margin-top: 7%;
 	margin-right: -8%;
@@ -372,4 +372,8 @@ input[type=submit] {
 
 .save-button {
 	margin-top: 10%;
+}
+
+.user-edit {
+
 }
