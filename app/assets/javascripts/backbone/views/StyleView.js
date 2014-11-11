@@ -1,7 +1,10 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
+var dispatcher = _.clone(Backbone.Events);
+
 MartialClub.Views.StyleView = Backbone.View.extend({
 	initialize: function(){
+		this.undelegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "change:[attribute]", this.render );
 		this.listenTo( this.model, "add", this.render );
@@ -16,7 +19,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 	},
 
 	seeSchools: function() {
-		Backbone.history.navigate('styles/' + this.model.attributes.name, {trigger: true});
+		Backbone.history.navigate('styles/' + encodeURI(this.model.attributes.name), {trigger: true});
 		var schoolWithStyle = this.model.attributes.schools
 
 		var schoolModel = []
@@ -26,7 +29,7 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 		});
 
 		var modal = new MartialClub.Views.SchoolsModalView({ model: schoolModel })
-
+		dispatcher.trigger( 'OnClose' )
 	},
 
 	render: function(){

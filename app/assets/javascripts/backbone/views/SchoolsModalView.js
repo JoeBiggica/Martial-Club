@@ -1,14 +1,21 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
-router = new MartialClub.Routers.AppRouter
+var dispatcher = _.clone(Backbone.Events);
 
 MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 	modalTemplate: _.template( $('#schools-modal-template').html() ),
 	
 	initialize: function(){
-		console.log("initializing " + this.model.length + " school models");
+		dispatcher.on( 'CloseView', this.close, this );
 		this.render();
 	},
+
+	close: function() {
+        dispatcher.off( 'CloseView', this.close, this );
+        this.remove();
+        this.unbind();
+        this.views = [];
+    },
 
 	render: function(){
 		
@@ -24,10 +31,6 @@ MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 			school.render()
 			$('.style-schools-list').append(school.el)
 			$('.style-schools-list').append(school.model.attributes.address + ' ' + school.model.attributes.city + ', ' + school.model.attributes.state + '<br/><br/>')
-		})
-
-
-
-	   	
+		})	
 	}
 });

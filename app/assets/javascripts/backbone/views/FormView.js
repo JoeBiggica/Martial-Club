@@ -5,6 +5,7 @@ var stylesCollection = new MartialClub.Collections.StyleCollection();
 
 MartialClub.Views.FormView = Backbone.View.extend({
 	initialize: function() {
+		this.undelegateEvents();
 		Backbone.history.navigate('schools/create', {trigger: true});
 	},
 

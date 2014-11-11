@@ -1,5 +1,6 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
+var dispatcher = _.clone(Backbone.Events)
 var memberships = new MartialClub.Collections.MembershipCollection();
 var styles
 
@@ -22,7 +23,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 	},
 
 	seeSchool: function() {	
-		Backbone.history.navigate('schools/' + this.model.attributes.name, {trigger: true});
+		Backbone.history.navigate('schools/' + encodeURI(this.model.attributes.name), {trigger: true});
 		$('.transform').empty();
 		var schoolPage = new MartialClub.Views.SchoolPageView({ model: this.model, el: $('.transform')});
 		schoolPage.render();
@@ -39,6 +40,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
+		this.undelegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
@@ -161,7 +163,17 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 			}
 		});
 
-	}
+	},
+
+	destroyView: function() {
+	    this.undelegateEvents();
+
+	    this.$el.removeData().unbind(); 
+
+	    this.remove();  
+	    Backbone.View.prototype.remove.call(this);
+
+	},
 
 
 });

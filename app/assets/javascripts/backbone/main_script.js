@@ -4,7 +4,7 @@ function transform(template){
 	var transformTemplate = _.template( template.html() );
 	$('.transform').empty();
 	$('.transform').html(transformTemplate);	
-}
+};
 
 function schoolsInitialize(){
 	transform($('#transform-schools-template'))
@@ -16,7 +16,7 @@ function schoolsInitialize(){
 	});
 
 	schoolsCollection.fetch();
-}
+};
 
 function stylesInitialize(){
 	transform($('#transform-styles-template'))
@@ -27,7 +27,7 @@ function stylesInitialize(){
 		el: $('.styles-list')
 	})
 	stylesCollection.fetch();
-}
+};
 
 function usersInitialize(){
 	transform($('#transform-users-template'))
@@ -37,7 +37,7 @@ function usersInitialize(){
 		collection: usersCollection, 
 	})
 	usersCollection.fetch();
-}
+};
 
 function getUser(){
 	transform($('#transform-users-template'))
@@ -49,20 +49,13 @@ function getUser(){
 
 		console.log(user)
 		var userView = new MartialClub.Views.UserView({ model: user, el: $('.users') });
-		// var template = _.template( $('#user-page-template').html() );
-		// console.log(user.id)
-		// console.log(user.styles)
-		// console.log(user.first_name)
-		// $('.users').append(template({ user: user}))
+	})	
+};
 
-	})
-
-	
-}
 var currentUser;
 $.get('/users/?returnUser=true').done(function(response){
 	currentUser = response
-})
+});
 
 $(function(){
 
