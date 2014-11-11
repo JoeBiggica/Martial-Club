@@ -23,7 +23,8 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 	seeSchool: function() {	
 		Backbone.history.navigate('schools/' + encodeURI(this.model.attributes.name), {trigger: true});
-		$('.transform').empty();
+		$('.transform').remove();
+		$('.container').append('<div class="transform"> </div>')
 		var schoolPage = new MartialClub.Views.SchoolPageView({ model: this.model, el: $('.transform')});
 		schoolPage.render();
 
@@ -39,14 +40,9 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
-		this.delegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
-
-	defaults: {
-    	active : false
-    },
 
 	schoolPageTemplate: _.template( $('#school-page-template').html() ),
 	schoolEditTemplate: _.template( $('#school-edit-template').html() ),
@@ -136,8 +132,6 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	render: function(){
 		this.$el.empty();
 		this.$el.html(this.schoolPageTemplate( { school: this.model.toJSON() }));
-		$('.leave-area').append('<h5 class="leave-button">Leave</h5>')
-		$('.join-area').append('<h4 class="join-button">Join</h4>')
 
 		var geocoder = new google.maps.Geocoder();
 		

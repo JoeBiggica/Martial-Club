@@ -28,7 +28,7 @@ class SchoolsController < ApplicationController
 
 		new_style = params["new_style"]
 		style = params["style"]
-		
+
 		if new_style != ""
 			Style.create(name: new_style)
 			style_id = Style.find_by(name: new_style).id

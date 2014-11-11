@@ -29,7 +29,6 @@ MartialClub.Views.StyleView = Backbone.View.extend({
 		});
 
 		var modal = new MartialClub.Views.SchoolsModalView({ model: schoolModel })
-		dispatcher.trigger( 'OnClose' )
 	},
 
 	render: function(){
