@@ -2,7 +2,8 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {}, Route
 
 function transform(template){
 	var transformTemplate = _.template( template.html() );
-	$('.transform').empty();
+	$('.transform').remove();
+	$('.container').append('<div class="transform"> </div>')
 	$('.transform').html(transformTemplate);	
 };
 

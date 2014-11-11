@@ -2,6 +2,7 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 MartialClub.Views.UserListView = Backbone.View.extend({
 	initialize: function(){
+		this.undelegateEvents();
 		this.listenTo(this.collection, 'add', this.addOne);
 	},
 	addOne: function(item){

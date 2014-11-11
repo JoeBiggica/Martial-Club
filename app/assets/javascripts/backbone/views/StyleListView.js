@@ -2,6 +2,7 @@ var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
 MartialClub.Views.StyleListView = Backbone.View.extend({
 	initialize: function(){
+		this.undelegateEvents();
 		Backbone.history.navigate('styles', {trigger: true});
 		this.listenTo(this.collection, 'add', this.addOne);
 	},

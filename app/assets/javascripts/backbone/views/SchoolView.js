@@ -6,9 +6,8 @@ var styles
 
 MartialClub.Views.SchoolView = Backbone.View.extend({
 	initialize: function(){
+		this.delegateEvents();
 		this.listenTo( this.model, "change", this.render );
-		this.listenTo( this.model, "change:[attribute]", this.render );
-		this.listenTo( this.model, "add", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
 
@@ -40,10 +39,14 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 
 MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
-		this.undelegateEvents();
+		this.delegateEvents();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
+
+	defaults: {
+    	active : false
+    },
 
 	schoolPageTemplate: _.template( $('#school-page-template').html() ),
 	schoolEditTemplate: _.template( $('#school-edit-template').html() ),
@@ -57,6 +60,7 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 
 	join: function(){
 		console.log('click')
+
 		var schoolId = this.model.id
 		var userId = currentUser.id
 		var style = this.model.attributes.styles[0].name
@@ -67,7 +71,7 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 			style: style,
 		});
 
-		$('.join-button').empty();
+		$('.join-button').remove();
 		// $('.user-school-status').append('<h4 id="joined">Joined<h4><a class="leave-button"><h5>Leave</h5></a>');
 	},
 
@@ -81,8 +85,7 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 			membership.destroy();
 		})
 
-		$('.leave-button').empty();
-		$('#joined').empty();
+		$('.leave-area').remove();
 		// $('.user-school-status').append('<a class="join-button"><h4>Join<h4></a>');
 	},
 
@@ -133,6 +136,8 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	render: function(){
 		this.$el.empty();
 		this.$el.html(this.schoolPageTemplate( { school: this.model.toJSON() }));
+		$('.leave-area').append('<h5 class="leave-button">Leave</h5>')
+		$('.join-area').append('<h4 class="join-button">Join</h4>')
 
 		var geocoder = new google.maps.Geocoder();
 		
@@ -162,16 +167,6 @@ MartialClub.Views.SchoolPageView = Backbone.View.extend({
 		  		});
 			}
 		});
-
-	},
-
-	destroyView: function() {
-	    this.undelegateEvents();
-
-	    this.$el.removeData().unbind(); 
-
-	    this.remove();  
-	    Backbone.View.prototype.remove.call(this);
 
 	},
 

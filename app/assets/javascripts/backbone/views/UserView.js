@@ -4,6 +4,7 @@ var usersCollection = new MartialClub.Collections.UserCollection();
 
 MartialClub.Views.UserView = Backbone.View.extend({
 	initialize: function(){
+		this.undelegateEvents();
 		this.render();
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );

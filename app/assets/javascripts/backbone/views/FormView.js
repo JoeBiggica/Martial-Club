@@ -12,6 +12,7 @@ MartialClub.Views.FormView = Backbone.View.extend({
 	events: {
 		"click button#add-school" : "createSchool",
 	},
+
 	createSchool: function() {
 
 		var name = this.$el.find('input[name="school-name"]').val();
@@ -52,8 +53,10 @@ MartialClub.Views.FormView = Backbone.View.extend({
 
 		stylesCollection.fetch().done(function() {
 			if (newStyle != ""){
+				console.log('fuck')
 				stylesCollection.create({name: newStyle})
 			};
 		});
 	},
+
 });

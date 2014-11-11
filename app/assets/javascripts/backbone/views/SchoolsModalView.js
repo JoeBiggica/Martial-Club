@@ -1,30 +1,21 @@
 var MartialClub = MartialClub || { Models: {}, Collections: {}, Views: {} };
 
-var dispatcher = _.clone(Backbone.Events);
-
 MartialClub.Views.SchoolsModalView = Backbone.View.extend({
 	modalTemplate: _.template( $('#schools-modal-template').html() ),
 	
 	initialize: function(){
-		dispatcher.on( 'CloseView', this.close, this );
+		this.undelegateEvents();
 		this.render();
 	},
 
-	close: function() {
-        dispatcher.off( 'CloseView', this.close, this );
-        this.remove();
-        this.unbind();
-        this.views = [];
-    },
-
 	render: function(){
-		
+
 		var template = this.modalTemplate();
 	   	this.$el.html(template);
-		$('.modal-content').last().empty()
-	   	$('.modal-content').last().append(this.$el);
+		$('.style-modal').empty()
+	   	$('.style-modal').append(this.$el);
 
-		$('.modal-title').append('Schools that teach ')
+		$('.modal-title').last().append('Schools that teach this style')
 
 		_.each(this.model, function(item) {
 			var school = new MartialClub.Views.SchoolView({ model: item })

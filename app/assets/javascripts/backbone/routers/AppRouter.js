@@ -10,8 +10,22 @@ MartialClub.Routers.AppRouter = Backbone.Router.extend({
 		"styles/:name"	  : "stylesShow",
 	},
 
-	initialize: function () {
+	// schoolsShow:function () {
+ //    require([
+ //        'views/contact'
+ //    ], $.proxy(function (ContactView) {
+ //        this.setCurrentView(ContactView).render();
+ //    }, this));
+	// },
 
-	},
+	// setCurrentView:function (view) {
+	//     if (view != this._currentView) {
+	//         if (this._currentView != null && this._currentView.remove != null) {
+	//             this._currentView.remove();
+	//         }
+	//         this._currentView = new view();
+	//     }
+	//     return this._currentView;
+	// },
 
 });
