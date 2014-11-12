@@ -316,7 +316,7 @@ input[type=submit] {
 	margin-left: 5%;
 	margin-top: 2%;
 	margin-bottom: 2%;
-	color: white
+	color: black;
 }
 #map-canvas {
 	border-radius: 10px;
