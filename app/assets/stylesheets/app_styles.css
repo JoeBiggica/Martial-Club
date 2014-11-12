@@ -424,7 +424,7 @@ input[type=submit] {
 
 .user-header {
 	background-color: black;
-	margin-top: 31px;
+	margin-top: -24px;
 	border-radius: 10px;
 	color: white;
 }
@@ -496,16 +496,20 @@ input[type=submit] {
 }
 
 .styles-listed {
-	color: white
+	padding-top: 1%;
+	margin-left: 1%;
 }
 
 .schools-listed {
-	color: white
+	padding-top: 1%;
+	margin-left: 1%;
 }
 
-#search-results {
+.transform {
 	background: linear-gradient(#FFFFFB, #BDC0BA);
-	border-radius: 10px; 
+	border-radius: 10px;
+	min-height: 352px;
+	margin-top: 3%; 
 }
 
 .search-title {
@@ -528,3 +532,4 @@ input[type=submit] {
 .search-results-schools {
 	padding-left: 4%;
 }
+

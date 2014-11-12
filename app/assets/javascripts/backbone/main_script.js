@@ -49,7 +49,7 @@ function usersInitialize(){
 
 function getUser(){
 	transform($('#transform-users-template'))
-
+	$('.transform').css({'height': '2px', 'padding-top': '20px'})
 	var usersCollection = new MartialClub.Collections.UserCollection();
 	usersCollection.fetch().done(function(){
 		
@@ -191,10 +191,9 @@ $(function(){
 // 
 
 	$(".login-link").click(function() {
-		console.log('soos')
 	 
-	  $(".sign-up-box").toggle("drop");
-	   $(".login-box").toggle("blind");
+	  $(".sign-up-box").toggle("pulsate");
+	   $(".login-box").toggle("pulsate");
 	});
 
 	Backbone.history.start();
