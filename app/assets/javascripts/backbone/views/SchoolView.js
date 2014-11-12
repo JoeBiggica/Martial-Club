@@ -42,6 +42,7 @@ MartialClub.Views.SchoolView = Backbone.View.extend({
 MartialClub.Views.SchoolPageView = Backbone.View.extend({
 	initialize: function() {
 		// this.undelegateEvents();
+		$(document).scrollTop(1)
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
