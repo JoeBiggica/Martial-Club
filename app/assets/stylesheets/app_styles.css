@@ -502,3 +502,29 @@ input[type=submit] {
 .schools-listed {
 	color: white
 }
+
+#search-results {
+	background: linear-gradient(#FFFFFB, #BDC0BA);
+	border-radius: 10px; 
+}
+
+.search-title {
+	padding-top: 1%;
+	margin-left: 1%;
+}
+
+.search-style-title {
+	padding-left: 5%;
+}
+
+.search-school-title {
+	padding-left: 5%;
+}
+
+.search-results-styles {
+	padding-left: 4%;
+}
+
+.search-results-schools {
+	padding-left: 4%;
+}

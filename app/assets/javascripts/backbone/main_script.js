@@ -7,6 +7,13 @@ function transform(template){
 	$('.transform').html(transformTemplate);	
 };
 
+function transformWithVariable(template, value){
+	var transformTemplate = _.template( template.html() );
+	$('.transform').remove();
+	$('.container').append('<div class="transform"> </div>')
+	$('.transform').html(transformTemplate({ variable: value }));	
+};
+
 function schoolsInitialize(){
 	transform($('#transform-schools-template'))
 
@@ -126,26 +133,54 @@ $(function(){
 			});
 			searchBar.autocomplete({source: searchArray});
 		})
+
+		schoolsCollection.fetch().done(function() {
+			_.each(schoolsCollection.models, function(model) {
+				searchArray.push(model.attributes.name)
+			});
+			searchBar.autocomplete({source: searchArray});
+		})
 		
 	};
 	autoComplete($('#search-bar'));
 
+	function search() {
+		transformWithVariable($('#transform-search-template'), $('#search-bar').val())
+		_.each(stylesCollection.models, function(model) {
+			
+			if ($('#search-bar').val().toLowerCase() == model.attributes.name.toLowerCase() || model.attributes.name.toLowerCase().indexOf($('#search-bar').val().toLowerCase()) > -1) {
+				var style = new MartialClub.Views.StyleView({ model:  model});
+				style.render();
+				
+				$('.search-results-styles').append(style.el);
+			};
+		});
+
+		_.each(schoolsCollection.models, function(model) {
+			if ($('#search-bar').val().toLowerCase() == model.attributes.name.toLowerCase() || model.attributes.name.toLowerCase().indexOf($('#search-bar').val().toLowerCase()) > -1) {
+				var school = new MartialClub.Views.SchoolView({ model:  model});
+				school.render();
+
+				$('.search-results-schools').append(school.el);
+			};
+		});
+	}
+
 	$('#search-bar').on('keyup', function(e) {
 		if (e.keyCode == 13) {
-			transform($('#transform-search-template'))
-			_.each(stylesCollection.models, function(model) {
-				
-				if ($('#search-bar').val() == model.attributes.name) {
-					var style = new MartialClub.Views.StyleView({ model:  model});
-					style.render();
-					
-					$('.search-results').append(style.el);
-				}
-			})
-		}
+			search();
+		};
 
 		if ($('.search').val() == "") {
-		$('.search-items').empty();
+			$('.search-items').empty();
+		};
+	})
+
+	$('.fa-search').on('click', function() {
+		search();
+
+		if ($('.search').val() == "") {
+			$('.search-items').empty();
 		}
 
 	})
