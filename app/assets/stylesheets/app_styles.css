@@ -112,6 +112,7 @@ i:hover {
 	height: 300px;
 	padding: 0;
 	margin-top: 14%;
+	margin-bottom: 14%;
 	margin-left: -30%;
 	border-radius: 10px;
 }
@@ -375,5 +376,76 @@ input[type=submit] {
 }
 
 .user-edit {
+	margin-right: -10px !important;
+}
 
+.user-name {
+	margin-top: 19px;
+}
+
+.user-name h2 {
+	font-size: 75px;
+}
+
+.user-header {
+	background-color: black;
+	margin-top: 31px;
+	border-radius: 10px;
+	color: white;
+}
+
+.user-style-title {
+	border-radius: 5px;
+	border: 1px solid #1C1C1C;
+	background: linear-gradient(#CB4042, rgb(189,0,33));
+	font-size: 160%;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+}
+
+.user-style-title:hover {
+	font-size: 165%;
+	background: white;
+	color: rgb(189,0,33);
+}
+
+.user-school-title {
+	border-radius: 5px;
+	border: 1px solid #1C1C1C;
+	background: linear-gradient(#CB4042, rgb(189,0,33));
+	font-size: 160%;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+}
+
+.user-school-title:hover {
+	font-size: 165%;
+	background: white;
+	color: rgb(189,0,33);
+}
+
+.user-school-list h4 {
+	margin: 0 auto;
+}
+
+.user-style-list h4 {
+	margin-top: 0 auto;
+}
+
+.user-school-list {
+	display: none;
+	border: 5px solid rgb(189,0,33);
+	border-radius: 10px;
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+.user-style-list {
+	display: none;
+	border: 5px solid rgb(189,0,33);
+	border-radius: 10px;
+	margin-top: 11px;
+	margin-bottom: 11px;
 }

@@ -6,6 +6,7 @@ MartialClub.Views.UserView = Backbone.View.extend({
 	initialize: function(){
 		this.undelegateEvents();
 		this.render();
+		Backbone.history.navigate('users/' + this.model.attributes.first_name, {trigger: true});
 		this.listenTo( this.model, "change", this.render );
 		this.listenTo( this.model, "destroy", this.remove );
 	},
@@ -18,6 +19,8 @@ MartialClub.Views.UserView = Backbone.View.extend({
 	events: {
 		"click i.edit-button" : "edit",
 		"click i.save-button" : "save",
+		"click div.user-style-title" : "seeStyles",
+		"click div.user-school-title" : "seeSchools",
 	},
 
 	edit: function() {
@@ -43,7 +46,16 @@ MartialClub.Views.UserView = Backbone.View.extend({
 		this.$el.html(this.userPageTemplate( { user: this.model.toJSON() }))
 	},
 
+	seeStyles: function() {
+		$(".user-style-list").toggle("blind");
+	},
+
+	seeSchools: function() {
+		$(".user-school-list").toggle("blind");
+	},
+
 	render: function(){
+		this.delegateEvents();
 		this.$el.empty();
 		this.$el.html(this.userPageTemplate( { user: this.model.toJSON() }));
 	},

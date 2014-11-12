@@ -73,6 +73,10 @@ $(function(){
     router.on('route:styles', function() {
     	stylesInitialize();
     });
+
+    router.on('route:user/:name', function() {
+    	getUser();
+    });
 	
 
 	var usersCollection = new MartialClub.Collections.UserCollection();
@@ -146,6 +150,16 @@ $(function(){
 
 	})
 	
+
+// 
+// UI
+// 
+
+	$(".user-style-title").click(function() {
+		console.log('soos')
+	  $(".user-style-list").toggle("blind");
+	});
+
 	Backbone.history.start();
 
 });
