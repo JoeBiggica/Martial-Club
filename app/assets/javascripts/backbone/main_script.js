@@ -191,11 +191,11 @@ $(function(){
 // UI
 // 
 
-	$(".login-link").click(function() {
+	// $(".login-link").click(function() {
 	 
-	  $(".sign-up-box").hide("pulsate");
-	   $(".login-box").show("pulsate");
-	});
+	//   $(".sign-up-box").hide("pulsate");
+	//    $(".login-box").show("pulsate");
+	// });
 
 	Backbone.history.start();
 
