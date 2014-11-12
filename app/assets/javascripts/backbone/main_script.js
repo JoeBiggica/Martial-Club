@@ -164,6 +164,7 @@ $(function(){
 				$('.search-results-schools').append(school.el);
 			};
 		});
+		$('#search-bar').val('')
 	}
 
 	$('#search-bar').on('keyup', function(e) {
