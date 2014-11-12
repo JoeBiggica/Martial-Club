@@ -1,26 +1,60 @@
 
-.login-body {
-	background-image: url('./login_wallpaper.jpg');
+body {
+	background-image: url('./wallpaper.jpg');
 	background-size: 100%;
 }
+
+#logout-button {
+	margin-left: 34px;
+	margin-top: 23px;
+}
+
+#login-home-button {
+	margin-left: 34px;
+	margin-top: 10px;
+}
+
+#logo-login {
+	width: 32%;
+}
+
+.signup-button {
+	margin-left: 0% !important;
+}
+
+.login {
+	margin-top: 3%;
+}
+
+.login-button {
+	margin-left: 0% !important;
+}
+
 #sign-up-head {
-	color: white;
+	padding-top: 3%;
 }
 
 #login-head {
-	color: white;
+	padding-top: 3%;
+}
+
+.login-header {
+	text-align: center;
 }
 
 .sign-up-box {
-	background-color: rgba(189,0,33,.5);
-	height: 250px;
+	background-color: white;
+	height: 415px;
 	border-radius: 10px;
+	margin-top: 10%;
 }
 
 .login-box {
-	background-color: rgba(189,0,33,.5);
-	height: 150px;
+	display: none;
+	background-color: white;
+	height: 250px;
 	border-radius: 10px;
+	margin-bottom: 10%;
 }
 
 li {
@@ -282,6 +316,7 @@ input[type=submit] {
 	margin-left: 5%;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	color: white
 }
 #map-canvas {
 	border-radius: 10px;
@@ -428,10 +463,12 @@ input[type=submit] {
 
 .user-school-list h4 {
 	margin: 0 auto;
+	margin-left: 6px
 }
 
 .user-style-list h4 {
-	margin-top: 0 auto;
+	margin: 0 auto;
+	margin-left: 6px
 }
 
 .user-school-list {
@@ -440,6 +477,7 @@ input[type=submit] {
 	border-radius: 10px;
 	margin-top: 11px;
 	margin-bottom: 11px;
+	width: 130%;
 }
 
 .user-style-list {
@@ -448,4 +486,19 @@ input[type=submit] {
 	border-radius: 10px;
 	margin-top: 11px;
 	margin-bottom: 11px;
+	width: 111%;
+}
+
+.profile-pic-label {
+	margin-top: -16%;
+	margin-left: -29%;
+	margin-bottom: 7%;
+}
+
+.styles-listed {
+	color: white
+}
+
+.schools-listed {
+	color: white
 }

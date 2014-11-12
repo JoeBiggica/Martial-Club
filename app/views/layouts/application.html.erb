@@ -56,14 +56,14 @@
 						<h5 class="col-sm-1"id="login-name"><%= User.find(session['user_id']).first_name %></h5>
 						<div class="col-sm-1 col-sm-offset-2" id="logout">
 							<%= form_tag("/session", method: "delete") do %>
-				  				<%= submit_tag("Logout") %>
+				  				<%= submit_tag "Logout", :class => "btn btn-danger", :id => "logout-button" %>
 							<% end %>
 						</div>
 					</div>
 				<% else %>
 					<div class="col-sm-1 col-sm-offset-7" id="login">
 						<%= form_tag("/login", method: "get") do %>
-		  					<%= submit_tag("Login") %>
+		  					<%= submit_tag "Login", :class => "btn btn-danger", :id => "login-home-button" %>
 						<% end %>
 					</div>
 				<% end %>
@@ -179,7 +179,7 @@
 						 	</div>
 						
 							<div class="modal-footer">
-					        	<button id="add-school" data-dismiss="modal">Add School</button>
+					        	<button id="add-school" data-dismiss="modal" class="btn btn-danger">Add School</button>
 					      	</div>
 				      	</div>
 			      	</div>

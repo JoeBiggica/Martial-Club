@@ -19,8 +19,8 @@ MartialClub.Views.UserView = Backbone.View.extend({
 	events: {
 		"click i.edit-button" : "edit",
 		"click i.save-button" : "save",
-		"click div.user-style-title" : "seeStyles",
-		"click div.user-school-title" : "seeSchools",
+		"click h3.user-style-title" : "seeStyles",
+		"click h3.user-school-title" : "seeSchools",
 	},
 
 	edit: function() {

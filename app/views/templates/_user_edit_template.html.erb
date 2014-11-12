@@ -1,18 +1,17 @@
 <script type="text/template" id="edit-user-template">
   <div class="user-page" id="user-page-<%%= user.id %>">
 		<div class="row user-header">
-		
 			<section class="col-md-3 col-md-offset-1">
-				<img src="<%%= user.profile_url %>" class="profile-pic-main"><br/>
-				<label><h4>Profile Picture URL</h4>
+				<img src="<%%= user.profile_url %>" class="profile-pic-main">
+				<label class="profile-pic-label"><h4>Profile Picture URL</h4>
 					<input type="text" name="profile_url" value="<%%= user.profile_url %>">
 				</label>
 			</section>
 		
 
-			<section class="col-md-8">
+			<section class="col-md-7 col-md-offset-1">
 				<div class="row">
-					<div class="col-md-3 col-md-offset-2">
+					<div class=" col-md-7 user-name">
 						<label><h4>First Name:</h4> 
 							<input type="text" name="first_name" value="<%%= user.first_name %>">
 						</label><br/>
@@ -20,36 +19,42 @@
 							<input type="text" name="last_name" value="<%%= user.last_name %>">
 						</label><br/>
 					</div>
-					<div class="col-md-3 col-md-offset-3">
+
+					<div class="col-sm-1 col-lg-offset-4">
 						<i class="fa fa-check-circle fa-3x save-button"></i>
 					</div>
 				</div>
+
 				<div class="row">
-					<div class="col-md-3 col-md-offset-2">
-						<label><h3>Styles:</h3>
+					<section class="col-md-4">
+						<h3 class="user-style-title">Styles</h3>
+						<div class="user-style-list">
 							<%% _.each(user.styles, function(style){ %>
 								<h4><%%= style.name %></h4><br/>
 							<%% }); %>
-						</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-md-offset-2">
-						<label><h3>Schools:</h3>
+						</div>
+					</section>
+
+					<section class="col-md-4">
+						<h3 class="user-school-title">Schools</h3>
+						<div class="user-school-list">
 							<%% _.each(user.schools, function(school){ %>
 								<h4><%%= school.name %></h4><br/>
 							<%% }); %>
-						</label>
-					</div>
+						</div>
+					</section>
 				</div>
+
+				
 			</section>
+
+			
 		</div>
 
 		<div class="row user-info">
-			<section class="col-md-3 col-md-offset-1">
+			<section class="col-md-3">
 				<h3><%% user.email %></h3>
 			</section>
-		</div>
-		
+		</div>			
 	</div>
 </script>

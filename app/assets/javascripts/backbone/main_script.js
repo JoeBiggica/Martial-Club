@@ -155,9 +155,11 @@ $(function(){
 // UI
 // 
 
-	$(".user-style-title").click(function() {
+	$(".login-link").click(function() {
 		console.log('soos')
-	  $(".user-style-list").toggle("blind");
+	 
+	  $(".sign-up-box").toggle("drop");
+	   $(".login-box").toggle("blind");
 	});
 
 	Backbone.history.start();
