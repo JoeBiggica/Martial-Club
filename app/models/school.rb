@@ -6,4 +6,5 @@ class School < ActiveRecord::Base
 	has_many :user_school_styles
 	has_many :styles, through: :user_school_styles
 	has_many :photos, dependent: :destroy
+	# validates :name
 end

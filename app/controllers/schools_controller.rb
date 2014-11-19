@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
 	
 	def index
-		schools = School.all.order(name: :asc).to_json(include: [:styles, :users])
+		schools = School.all.order(name: :asc).pluck(:name).to_json(include: [:styles, :users])
 		respond_to do |format|
     		format.json { render :json => schools }
 		end
